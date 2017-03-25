@@ -238,8 +238,149 @@ Battery::Battery(string in_name,int in_model_number,string in_description,
 }
 double Battery::get_power() {return power_available;}
 double Battery::get_max_energy() {return max_energy;}
+#include <iostream>
+#include <vector>
+#include <string>
 
+using namespace std;
 
+// First Take information then instance 
+class Robot_Modle 
+{
+	private:  
+	     string    modle_name ="No_Name";
+	     int       modle_number=0;
+	     vector<Torso>     modle_Torso;
+	     vector<Head>      modle_Head;
+	     vector<Locomotor> modle_Locomotor;
+	     vector<Battery> modle_Battry;
+	     vector<Arm> modle_Arm;
+
+	public:
+	      Robot_Modle();
+	      Robot_Modle(string,int);
+	      string Get_modle_name ()   { return modle_name; }
+	      int    Get_modle_number () { return modle_number ;}
+          bool   add_Torso(Torso);
+	      bool   add_Head(Head);
+	      bool   add_Locomotor(Locomotor);
+	      void   add_Battery(Battery);
+	      bool   add_Arm(Arm);
+	      int    Get_Torso_Bat_Comp();
+	      int    Get_Torso_Max_arms();
+	      double Get_Locmotor_max_speed();
+	      double Get_Locomotor_max_power();
+	      int    Get_Head_power();
+	      vector<int> Get_Arms_power() ;
+	      int    Get_number_of_Arms() { return model_Arm.size();}
+	      int    Get_number_of_Batteries(){ return model_Battery.size();}
+	      double Get_Model_Cost();
+};
+
+Robot_Modle::Robot_Modle() {}
+Robot_Modle::Robot_Modle(string in_name , int in_num){
+           modle_name = in_name;
+	       modle_number = in_num;
+}
+bool Robot_Modle::add_Torso(Torso in_Torso){
+	if(modle_Torso.size()==0) {
+	     modle_Torso.push_back(in_Torso);
+		return 1;
+	 }
+	else {
+	     return 0;
+	}
+	
+}
+bool Robot_Modle::add_Head(Head in_Head){
+		if(modle_Head.size()==0) {
+	     modle_Head.push_back(in_Head);
+		return 1;
+	 }
+	else {
+	     return 0;
+	}
+	
+}
+bool Robot_Modle::add_Locomotor(Locomotor in_Locomotor){
+		if(modle_Locomotor.size()==0) {
+	     modle_Locomotor.push_back(in_Locomotor);
+		return 1;
+	 }
+	else {
+	     return 0;
+	}
+	
+}
+void Robot_Modle::add_Battery(Battery in_Battery){
+	modle_Battry.push_back(in_Battery);
+		}
+bool Robot_Modle::add_Arm(Arm in_Arm){
+	if(modle_Arm.size()<=2) {
+	     modle_Arm.push_back(in_Arm);
+		return 1;
+	 }
+	else {
+	     return 0;
+	}
+}
+int  Robot_Modle::Get_Torso_Bat_Comp () {
+	if(model_Torso.size()!=0) 
+		return modle_Torso[0].get_battery_comparments();
+    else
+        return 0;}
+int    Robot_Modle::Get_Torso_Max_arms() { 
+	if(model_Torso.size()!=0)
+	return  modle_Torso[0].get_max_arms (); 
+	else
+		return 0;
+} 	
+double Robot_Modle::Get_Locmotor_max_speed() {
+	if(model_Locomotor.size()!=0)
+	return  modle_Locomotor[0].get_max_spedd();
+	else 
+		return 0;
+}
+double Robot_Modle::Get_Locomotor_max_power() { 
+	if(model_Locomotor.size()!=0)
+	return  modle_Locomotor[0].get_max_power();
+	else
+		return 0;
+}
+int    Robot_Modle::Get_Head_power() {
+	if(model_Head.size()!=0)
+	return modle_Head[0].Getpower();
+	else
+		return 0;
+}
+vector<int> Robot_Modle::Get_Arms_power() {
+    vector <int> power ;
+	if(model_Arrm.size()!=0){
+	 for( auto & num : model_Arm ){
+	     num.get_max_power();
+		 power.push_back(num);
+	 } //end for
+	} //end if
+	   return power;
+}
+double Robot_Modle::Get_Model_Cost(){
+    double cost=0.0;
+	if(model_Arrm.size()!=0){
+	 for( auto & num : model_Arm ){
+	     cost += num.get_cost();
+	 } 
+	} 
+	if(modle_Battry.size()!=0){
+	 for( auto & num : modle_Battry ){
+	     cost += num.get_cost();
+	 } 
+	} 
+	cost += modle_Torso.get_cost();
+	cost += modle_Head.get_cost();
+	cost += modle_Locomotor.get_cost();
+	
+	return cost;
+}
 
 int main(void)
 {
