@@ -90,17 +90,83 @@ Arm::Arm(string in_name,int in_model_number,string in_description,
 
 double Arm::get_max_power() {return max_power;}
   
+
+
+//Class Robot Head
+
+class Head:public Robot_Part
+{
+
+private:
+  double power;
+public:
+  Head();
+  Head(string, int, string, string, double, double,double);
+
+  double Getpower();
+
+};
+
+Head::Head()
+:Robot_Part() 
+{
+   power = 0;
+}
+
+Head::Head(string in_name,int in_model_number,string in_description,
+         string in_image_filename, double in_cost,double in_weight, double in_max_power)
+  :Robot_Part(in_name,
+        in_model_number,in_description,
+        in_image_filename, in_cost,
+        in_weight)
+{
+  power = in_max_power;
+}
+
+double Head::Getpower() {return power;}
+
+
+//Battery class
+
+class Battery:public Robot_Part
+{
+private:
+  double power_available;
+  double max_energy;
+public:
+  Battery();
+  Battery(string, int,string,
+         string, double,double, double, double);
+
+  double get_power();
+  double get_max_energy();
+};
+
+Battery::Battery()
+:Robot_Part() 
+{
+  power_available = 0.0;
+  max_energy = 0.0;
+}
+Battery::Battery(string in_name,int in_model_number,string in_description,
+         string in_image_filename, double in_cost,double in_weight, double in_power_available, double in_max_energy)
+  :Robot_Part(in_name,
+        in_model_number,in_description,
+        in_image_filename, in_cost,
+        in_weight)
+{
+  power_available = in_power_available;
+  max_energy = in_max_energy;
+  
+}
+double Battery::get_power() {return power_available;}
+double Battery::get_max_energy() {return max_energy;}
+
+
+
 int main(void)
 {
 
-  
-
-
   return 0;
 }
-
-
-
-
-
 
