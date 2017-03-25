@@ -126,6 +126,8 @@ Torso::Torso(string in_name,
   max_arms = in_max_arms;
 
 }
+
+
     
 // Locomotor Class
 
@@ -385,6 +387,22 @@ double Robot_Modle::Get_Model_Cost(){
 int main(void)
 {
 
+  string main_prompt =
+    " Enter 1 to create robot parts
+      Enter 2 to define new robot models
+      Enter 3 to browse a catalog of robot models
+      Enter 4 to create a new customer
+      Enter 5 to create a new sales associate ";
+
+
+  robot_arm = Arm("Awesome Arm", 1, "A really awesome arm",
+		  "under_construction.jpg", 10000, 100, 10000000);
+  /*
+  robot_torso = Torso("Attractive Torso",2,",
+	 string in_image_filename, double in_cost,double in_weight, double in_max_power
+  
   return 0;
+  */
+
 }
 
