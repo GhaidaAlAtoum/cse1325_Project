@@ -67,7 +67,7 @@ private:
   double max_power;
 public:
   Arm();
-  Arm(string, int, string, string, double, double,double);
+  Arm(string, int, string, string, double, double, double);
   double get_max_power();
 
 };
