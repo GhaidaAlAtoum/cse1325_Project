@@ -8,7 +8,7 @@ string Product_Manager::manager_name = "Manager_Default";
 string Product_Manager::manager_password = "Manager_Default";
 
 Product_Manager& Product_Manager::get_Instance(){
-static get_Instance instance;
+static Product_Manager instance;
 	return instance;	
 }
 

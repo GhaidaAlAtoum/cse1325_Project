@@ -19,14 +19,16 @@ class shop
 		 	      
   public:
         static shop& Instance_shop();
-		static add_component(Robot_Part&);
-        static add_Model(Robot_model&);
-        static remove_component(int index);
-        static remove_Model(int index);
-        static Print_Catalog_Models();
-        static Print_Catalog_Components();
-      
-
+		static void add_component(Robot_Part&);
+        static void add_Model(Robot_model&);
+        static void remove_component(int index);
+        static void remove_Model(int index);
+        static void Print_Catalog_Models();
+        static void Print_Catalog_Components();
+        static void save_Robot_Models();
+		static void save_Robot_Components();
+		static void Read_Robot_Components()
+		static void Read_Robot_Models();
 };
 
 #endif
