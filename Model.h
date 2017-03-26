@@ -11,7 +11,7 @@ class Robot_model
 {
 	private:  
 	     string    model_name ="No_Name";
-	     int       model_number=0;
+	     string       model_number="0";
 	     vector<Torso>     model_Torso;
 	     vector<Head>      model_Head;
 	     vector<Locomotor> model_Locomotor;
@@ -20,10 +20,10 @@ class Robot_model
 
 	public:
 	      Robot_model();
-	      Robot_model(string,int);
+	      Robot_model(string,string);
 	      string Get_model_name ()   { return model_name; }
 		  string print_model_Components();
-	      int    Get_model_number () { return model_number ;}
+	      string    Get_model_number () { return model_number ;}
 		  int    Get_number_of_Arms() { return model_Arm.size();}
 	      int    Get_number_of_Batteries(){ return model_Battery.size();}
 		  int    Get_Torso_Bat_Comp();

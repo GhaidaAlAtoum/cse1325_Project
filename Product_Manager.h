@@ -18,11 +18,14 @@ class Product_Manager
 		  void   change_name(string);
 		  void   change_pass(string);
 		  void   Instance_new_component(int choice);
-		  void   Instance_new_model();
+		  void   Instance_new_model(string,string);
 		  void   push_component(Robot_Part&);
 		  void   push_Model(Robot_Model&);
 		  void   pull_component(int component_index);
 		  void   pull_Model(int Model_index);
+		  void   Print_Catalog_Components();
+		  void   Print_Catalog_model();
+
 };
 
 

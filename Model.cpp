@@ -8,7 +8,7 @@
 using namespace std;
 
 Robot_model::Robot_model() {}
-Robot_model::Robot_model(string in_name , int in_num){
+Robot_model::Robot_model(string in_name , string in_num){
            model_name = in_name;
 	       model_number = in_num;
 }

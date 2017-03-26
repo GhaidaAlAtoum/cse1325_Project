@@ -1,4 +1,5 @@
 #include "Product_Manager.h"
+#include "shop.h"
 #include<iostream>
 
 using namespace std
@@ -28,15 +29,46 @@ void Product_Manager::Instance_new_component(int choice)
 {   
 	 
 }
-void Product_Manager::Instance_new_model()
+void Product_Manager::Instance_new_model(string m_name,string m_number)
 {
+	Robot_model temp(m_name,m_number);
+	/* from the menu of components PM choses then using the add function in
+	   Robot_model we'll add the components */
+	push_Model(temp);
 	
 }
-void Product_Manager::push_component(Robot_Part&)
+void Product_Manager::push_component(Robot_Part& temp)
 {
+	shop::add_component(temp);
 	
 }
-void Product_Manager::push_Model(Robot_Model&)
+void Product_Manager::push_Model(Robot_Model& temp)
 {
-	
+	shop::add_Model(temp);	
 }
+void   Product_Manager::pull_component(int component_index){
+	shop::remove_component(component_index);
+}
+void   Product_Manager::pull_Model(int Model_index){
+	shop::remove_Model(Model_index);
+}
+void   Product_Manager::Print_Catalog_Components(){
+	shop::Print_Catalog_Models
+}
+void   Product_Manager::Print_Catalog_model(){
+	shop::Print_Catalog_Components
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
