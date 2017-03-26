@@ -10,11 +10,12 @@ using namespace std;
 int main(){
  
  	Torso T1( "T_1",1,"T_2","T_3",12,13,14,15);
-	cout<<"Torso Battery Compartments  " <<T1.get_battery_compartments()<<endl;
-	cout<<"Torso Max arms  " <<T1.get_max_arms()<<endl;
-	cout<<"Cost Torso  "<< T1.get_cost()<<endl;
-	cout<<"Shipping price  "<<T1.get_shipping_price()<<endl;
-	cout<<"Torso Image file name  " <<T1.get_image_filename()<<endl;
+	Robot_Part & check = T1;
+	cout<<"Torso Battery Compartments  " <<check.get_battery_compartments()<<endl;
+	cout<<"Torso Max arms  " <<check.get_max_arms()<<endl;
+	cout<<"Cost Torso  "<< check.get_cost()<<endl;
+	cout<<"Shipping price  "<<check.get_shipping_price()<<endl;
+	cout<<"Torso Image file name  " <<check.get_image_filename()<<endl;
 	cout<<"\n ********************************** \n";
 	
     Arm A1("A_1",2,"A_2","A_3",21,22,23);

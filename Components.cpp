@@ -22,7 +22,7 @@ Arm::Arm(string in_name,int in_model_number,string in_description,
   max_power = in_max_power;
 }
 
-double Arm::get_max_power() {return max_power;}
+double Arm::get_max_power_Arm() {return max_power;}
 /********************************** Torso class **********************************/
 Torso::Torso():Robot_Part()
 {

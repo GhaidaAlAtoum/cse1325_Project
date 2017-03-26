@@ -15,7 +15,7 @@ private:
 public:
   Arm();
   Arm(string, int, string, string, double, double,double);
-  double get_max_power();
+  double get_max_power_Arm();
 
 };
 /********************************** Torso class **********************************/
