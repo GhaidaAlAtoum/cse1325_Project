@@ -1,6 +1,7 @@
 For UML and class relations 
   (1) https://www.tutorialspoint.com/cplusplus/cpp_inheritance.htm
   (2) http://creately.com/blog/diagrams/class-diagram-relationships/
+  (3) http://usna86-techbits.blogspot.com/2012/11/uml-class-diagram-relationships.html
 For General C++ :
   (1) http://www.learncpp.com/
   (2) https://www.youtube.com/playlist?list=PLAE85DE8440AA6B83
