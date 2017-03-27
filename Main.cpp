@@ -51,18 +51,31 @@ Main Menu
     return menu;
 }
 
-
-string View::get_PM_1_menu() {
-  string list = R"(
-----------------------------
-List of PM
-----------------------------
-)";
-  for (int i=0; i<library.number_of_publications(); ++i) {
-    list += std::to_string(i) + ") " + library.publication_to_string(i) + '\n';
-  }
-  return list;
+void view::get_PM_1_menu (string &username, string &password)
+{
+ cout<<"Please enter your username:";
+ cin>> username;
+ cout<<"Please enter your password:";
+ cin>> password;
 }
+
+ void View::get_PM_2_menu() {
+    string menu = R"(
+
+PM Menu 2
+----------
+(1) Add Component
+(2) Add Model
+(3) Remove Model
+(4) Remove Component
+(5) Print all Model
+(6) Print all Component
+(7) Back to Min Menu
+(8) Change Username
+(9) Change Password
+
+}
+
 
 string View::get_patron_list() {
   string list = R"(
