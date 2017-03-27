@@ -1,3 +1,7 @@
+#ifndef VIEW.H
+#define VIEW.H
+
+
 class View
 {
 
@@ -12,4 +16,7 @@ class View
   string get_order_status();
 
 };
+
+#endif
+
 

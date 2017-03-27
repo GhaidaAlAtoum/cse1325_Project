@@ -25,6 +25,16 @@ class View {
     string get_PB_1_menu();
     string get_PB_1_menu();
     string get_help();
+	
+	// Customer
+	
+	string get_new_or_returning_menu(); // Asks if customer if new or returning
+  	string get_create_customer_menu(); // For creating a new customer
+  	string get_login_menu(); // Logging in if previous customer
+  	string get_customer_options_list(); // view robot models, show models, etc
+  	string get_robot_models_list();
+  	string get_ordering_menu();
+  	string get_order_status()
 };
 
 string View::get_menu() {
@@ -51,33 +61,25 @@ Main Menu
     return menu;
 }
 
-void view::get_PM_1_menu (string &username, string &password)
-{
- cout<<"Please enter your username:";
- cin>> username;
- cout<<"Please enter your password:";
- cin>> password;
+
+string View::get_PM_1_menu() {
+  string list = R"(
+----------------------------
+List of PM
+----------------------------
+)";
+  for (int i=0; i<library.number_of_publications(); ++i) {
+    list += std::to_string(i) + ") " + library.publication_to_string(i) + '\n';
+  }
+  return list;
 }
 
- void View::get_PM_2_menu() {
-    string menu = R"(
-
-PM Menu 2
-----------
-(1) Add Component
-(2) Add Model
-(3) Remove Model
-(4) Remove Component
-(5) Print all Model
-(6) Print all Component
-(7) Back to Min Menu
-(8) Change Username
-(9) Change Password
-
-}
-
+<<<<<<< HEAD
+string View::get_patron_list() {
+=======
 
 string View::get_Boss() {
+>>>>>>> 53f615591126c705a821fbf8d4b9f3537eaeb87c
   string list = R"(
 -----------------------
     Boss's Jobs
@@ -115,6 +117,54 @@ string View::get_age_list() {
 
 string View::get_help() {
   return "Try harder.";
+}
+
+// Adding Customer functions to class
+
+
+string View::get_new_or_returning_menu()
+{
+
+  cout << "Enter 1 if you are a new user" << endl;
+  cout << "Enter 2 if are a returning user" << end;
+  
+}
+
+string View::get_create_customer_menu()
+{
+
+  cout << "Please enter a new username, press enter, and then a password." << endl;
+
+}
+
+string View::get_login_menu()
+{
+
+  cout << "Please enter your username, press enter, then enter your password." << endl;
+
+}
+
+string View::get_customer_options_list()
+{
+
+  cout << "Enter 1 to view robot models." << endl;
+  cout << "Enter 2 to order a robot model." << endl;
+  cout << "Enter 3 to check an order status." << endl;
+
+}
+
+string View::get_robot_models_list()
+{
+
+ Shop::Print_Catalog_Models();
+
+}
+
+string View::get_ordering_menu()
+{
+
+	
+
 }
 
 
