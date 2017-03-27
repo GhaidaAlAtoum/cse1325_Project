@@ -1,0 +1,15 @@
+class View
+{
+
+ public:
+
+  string get_new_or_returning_menu(); // Asks if customer if new or returning
+  string get_create_customer_menu(); // For creating a new customer
+  string get_login_menu(); // Logging in if previous customer
+  string get_customer_options_list(); // view robot models, show models, etc
+  string get_robot_models_list();
+  string get_ordering_menu();
+  string get_order_status();
+
+};
+
