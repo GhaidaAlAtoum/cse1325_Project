@@ -62,25 +62,23 @@ Main Menu
 }
 
 
-string View::get_PM_1_menu() {
-  string list = R"(
+string View::get_PM_1_menu(string &username, string &password) {
+string list = R"(
 ----------------------------
-List of PM
+      List of PM
 ----------------------------
 )";
-  for (int i=0; i<library.number_of_publications(); ++i) {
-    list += std::to_string(i) + ") " + library.publication_to_string(i) + '\n';
-  }
-  return list;
+ cout<<"Please enter your username: ";
+ cin>> username;
+ cout<<"Please enetr your password: ";
+ cin >> password;
 }
 
 <<<<<<< HEAD
 string View::get_patron_list() {
-=======
-
 string View::get_Boss() {
->>>>>>> 53f615591126c705a821fbf8d4b9f3537eaeb87c
-  string list = R"(
+
+string list = R"(
 -----------------------
     Boss's Jobs
 -----------------------
@@ -88,7 +86,7 @@ string View::get_Boss() {
 (1) List of Orders
 (2) Check Shop Metrics
 (3) Check Profit Margin
-(4) Sales for sales associate
+(4) Sales For sales associate
 (5) Approve/Deny Requests 
 }
 )";
@@ -163,39 +161,9 @@ string View::get_robot_models_list()
 string View::get_ordering_menu()
 {
 
-	
-
 }
-
-
 
 int main(){
-// Creating Main Menu 
-
-/*int choice;
-do
-{
-cout<<"= = = = = = = = = = =\n";
-cout<<"      Robot'R'Us       ";
-cout<<"= = = = = = = = = = =\n";
-cin>> choice;
-
-switch(choice)
-{
- case 1:cout<<"Sign in as a PM\n"; break;
- case 2:cout<<"Sign in as a BC\n"; break;
- case 3:cout<<"Sign in as existing SA\n"; break;
- case 4:cout<<"Sign in as a PB\n"; break;
- case 5:cout<<"Help\n"; break;
- case 6:cout<<"EXit\n"; break;
- default:cout<<"Not a valid choice.\n";
-}
-}while(choice == 6);
-return choice;
-
-*/
-
-
  
  	Torso T1( "T_1",1,"T_2","T_3",12,13,14,15);
 	Robot_Part & check = T1;
