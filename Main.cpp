@@ -30,7 +30,7 @@ switch(choice)
  case 6:cout<<"EXit\n"; break;
  default:cout<<"Not a valid choice.\n";
 }
-}while(choice<=0||choice>6);
+}while(coice != 6);
 return choice;
 
 

@@ -15,6 +15,8 @@ class shop
   private:
          static vector <Robot_Part&> components;
 		 static vector <Robot_model&> Models;
+		 static vector <Customers> shop_Customers;
+		 static Product_Manager shop_Product_Manager;
 		 shop();
 		 	      
   public:
