@@ -82,6 +82,17 @@ string View::get_Boss() {
 -----------------------
     Boss's Jobs
 -----------------------
+
+(1) List of Orders
+(2) Check Shop Metrics
+(3) Chwck Profit Margin
+
+}
+
+
+
+
+
 )";
   
 
