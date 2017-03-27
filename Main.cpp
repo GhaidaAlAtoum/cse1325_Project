@@ -1,3 +1,4 @@
+
 #include "Robot_part.h"
 #include "Components.h"
 #include "Model.h"
@@ -8,11 +9,104 @@
 
 using namespace std;
 
+///////////////////////// 
+ class view 
+////////////////////////////
+
+class View {
+  public:
+    string get_main_menu();
+    string get_PM_1_menu();
+    string get_PM_2_menu();
+    string get_BC_new_menu();
+    string get_BC_old_menu();
+    string get_SA_1_menu();
+    string get_SA_2_menu();
+    string get_PB_1_menu();
+    string get_PB_1_menu();
+    string get_help();
+};
+
+string View::get_menu() {
+    string menu = R"(
+===============================\n"+get_main_menu() + get_help();
+}
+
+string View::get_menu() {
+    string menu = R"(
+==================
+    Robot'R'Us
+==================
+
+Main Menu
+---------
+(1) Sign in as a PM
+(2) Sign in as a BC
+(3) Sign in as an existing SA
+(4) Sign in as a PB
+(5) Help
+(6) Exit
+
+)";
+    return menu;
+}
+
+
+string View::get_PM_1_menu() {
+  string list = R"(
+----------------------------
+List of PM
+----------------------------
+)";
+  for (int i=0; i<library.number_of_publications(); ++i) {
+    list += std::to_string(i) + ") " + library.publication_to_string(i) + '\n';
+  }
+  return list;
+}
+
+string View::get_patron_list() {
+  string list = R"(
+-----------------------
+List of Beloved Patrons
+-----------------------
+)";
+  for (int i=0; i<library.number_of_patrons(); ++i) {
+    list += std::to_string(i) + ") " + library.patron_to_string(i) + '\n';
+  }
+  return list;
+}
+
+string View::get_genre_list() {
+  string list = "";
+  for (int i = 0; i < Genre::num_genres; ++i)
+    list += "  " + std::to_string(i) + ") " + Genre(i).to_string() + '\n';
+  return list;
+}
+
+string View::get_media_list() {
+  string list = "";
+  for (int i = 0; i < Media::num_media; ++i)
+    list += "  " + std::to_string(i) + ") " + Media(i).to_string() + '\n';
+  return list;
+}
+
+string View::get_age_list() {
+  string list = "";
+  for (int i = 0; i < Age::num_ages; ++i)
+    list += "  " + std::to_string(i) + ") " + Age(i).to_string() + '\n';
+  return list;
+}
+
+string View::get_help() {
+  return "Try harder.";
+}
+
+
 
 int main(){
 // Creating Main Menu 
 
-int choice;
+/*int choice;
 do
 {
 cout<<"= = = = = = = = = = =\n";
@@ -30,10 +124,10 @@ switch(choice)
  case 6:cout<<"EXit\n"; break;
  default:cout<<"Not a valid choice.\n";
 }
-}while(choice<=0||choice>6);
+}while(choice == 6);
 return choice;
 
-
+*/
 
 
  
