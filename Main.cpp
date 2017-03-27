@@ -77,17 +77,13 @@ PM Menu 2
 }
 
 
-string View::get_patron_list() {
+string View::get_Boss() {
   string list = R"(
 -----------------------
-List of Beloved Patrons
+    Boss's Jobs
 -----------------------
 )";
-  for (int i=0; i<library.number_of_patrons(); ++i) {
-    list += std::to_string(i) + ") " + library.patron_to_string(i) + '\n';
-  }
-  return list;
-}
+  
 
 string View::get_genre_list() {
   string list = "";
