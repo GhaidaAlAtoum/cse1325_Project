@@ -101,7 +101,7 @@ string list = R"(
 
 //   Help 
 
-string View::get_help() {
+string  View::get_help() {
   return "Try harder.";
 }
 
