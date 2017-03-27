@@ -74,17 +74,29 @@ List of PM
   return list;
 }
 
+<<<<<<< HEAD
 string View::get_patron_list() {
+=======
+
+string View::get_Boss() {
+>>>>>>> 53f615591126c705a821fbf8d4b9f3537eaeb87c
   string list = R"(
 -----------------------
-List of Beloved Patrons
+    Boss's Jobs
 -----------------------
-)";
-  for (int i=0; i<library.number_of_patrons(); ++i) {
-    list += std::to_string(i) + ") " + library.patron_to_string(i) + '\n';
-  }
-  return list;
+
+(1) List of Orders
+(2) Check Shop Metrics
+(3) Chwck Profit Margin
+
 }
+
+
+
+
+
+)";
+  
 
 string View::get_genre_list() {
   string list = "";
