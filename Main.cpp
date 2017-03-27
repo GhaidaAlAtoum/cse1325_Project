@@ -1,7 +1,7 @@
 #include "Robot_part.h"
 #include "Components.h"
 #include "Model.h"
-#include "Product_Manager.h"
+//#include "Product_Manager.h"
 #include <iostream>
 #include <vector>
 #include <string>
@@ -64,7 +64,7 @@ int main(){
 	cout<<"Battery Image file name  " <<B2.get_image_filename()<<endl;
 	cout<<"\n ********************************** \n";
 	
-	Robot_model mod1("MOD1.G",100);
+	Robot_model mod1("MOD1.G","100");
 	mod1.add_Torso(T1);
 	mod1.add_Head(H1);
 	mod1.add_Locomotor(L1);
