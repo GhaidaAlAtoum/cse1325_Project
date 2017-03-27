@@ -37,12 +37,16 @@ class View {
   	string get_order_status()
 };
 
-string View::get_menu() {
+
+
+         // Main Menu 
+
+string View::get_main_menu() {
     string menu = R"(
 ===============================\n"+get_main_menu() + get_help();
 }
 
-string View::get_menu() {
+string View::get_main_menu() {
     string menu = R"(
 ==================
     Robot'R'Us
@@ -62,6 +66,8 @@ Main Menu
 }
 
 
+// Sub Menu  = PM_1_Menu 
+
 string View::get_PM_1_menu(string &username, string &password) {
 string list = R"(
 ----------------------------
@@ -74,8 +80,9 @@ string list = R"(
  cin >> password;
 }
 
-<<<<<<< HEAD
-string View::get_patron_list() {
+
+// Boss 
+
 string View::get_Boss() {
 
 string list = R"(
@@ -92,26 +99,7 @@ string list = R"(
 )";
   
 
-string View::get_genre_list() {
-  string list = "";
-  for (int i = 0; i < Genre::num_genres; ++i)
-    list += "  " + std::to_string(i) + ") " + Genre(i).to_string() + '\n';
-  return list;
-}
-
-string View::get_media_list() {
-  string list = "";
-  for (int i = 0; i < Media::num_media; ++i)
-    list += "  " + std::to_string(i) + ") " + Media(i).to_string() + '\n';
-  return list;
-}
-
-string View::get_age_list() {
-  string list = "";
-  for (int i = 0; i < Age::num_ages; ++i)
-    list += "  " + std::to_string(i) + ") " + Age(i).to_string() + '\n';
-  return list;
-}
+//   Help 
 
 string View::get_help() {
   return "Try harder.";
