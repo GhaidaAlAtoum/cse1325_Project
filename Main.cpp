@@ -85,14 +85,10 @@ string View::get_Boss() {
 
 (1) List of Orders
 (2) Check Shop Metrics
-(3) Chwck Profit Margin
-
+(3) Check Profit Margin
+(4) Sales for sales associate
+(5) Approve/Deny Requests 
 }
-
-
-
-
-
 )";
   
 
