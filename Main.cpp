@@ -8,7 +8,34 @@
 
 using namespace std;
 
+
 int main(){
+// Creating Main Menu 
+
+int choice;
+do
+{
+cout<<"= = = = = = = = = = =\n";
+cout<<"      Robot'R'Us       ";
+cout<<"= = = = = = = = = = =\n";
+cin>> choice;
+
+switch(choice)
+{
+ case 1:cout<<"Sign in as a PM\n"; break;
+ case 2:cout<<"Sign in as a BC\n"; break;
+ case 3:cout<<"Sign in as existing SA\n"; break;
+ case 4:cout<<"Sign in as a PB\n"; break;
+ case 5:cout<<"Help\n"; break;
+ case 6:cout<<"EXit\n"; break;
+ default:cout<<"Not a valid choice.\n";
+}
+}while(choice<=0||choice>6);
+return choice;
+
+
+
+
  
  	Torso T1( "T_1",1,"T_2","T_3",12,13,14,15);
 	Robot_Part & check = T1;
