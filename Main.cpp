@@ -70,7 +70,7 @@ Main Menu
    // Sub Menu  = PM_1_Menu   (validating  the Product Manager)
 
 string View::get_PM_1_menu(string &username, string &password) {
-string list = R"(
+sring  list = R"(
 ----------------------------
       List of PM
 ----------------------------
