@@ -81,7 +81,7 @@ sring  list = R"(
  cin >> password;
 }
  
-    // Works of Product Manager after varification
+    // Works of Product Manager after verification
 
 void View::get_PM_2_menu() {
     string menu = R"(
