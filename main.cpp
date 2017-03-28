@@ -126,17 +126,16 @@ Torso::Torso(string in_name,
   max_arms = in_max_arms;
 
 }
-<<<<<<< HEAD
+
 
 
     
-=======
+
 int Torso::get_battery_compartments(){
    return battery_compartments;
 }
 int Torso::get_max_arms(){
 	return max_arms;}
->>>>>>> 6eaca68b9f6c2c917dbd92a1b6b807a0fec45f85
 // Locomotor Class
 
 class Locomotor:public Robot_Part
@@ -390,6 +389,9 @@ double Robot_Modle::Get_Model_Cost(){
 int main(void)
 {
 
+
+  
+  
   string main_prompt =
     " Enter 1 to create robot parts
       Enter 2 to define new robot models
@@ -398,14 +400,26 @@ int main(void)
       Enter 5 to create a new sales associate ";
 
 
-  robot_arm = Arm("Awesome Arm", 1, "A really awesome arm",
+  Arm robot_arm("Awesome Arm", 1, "A really awesome arm",
 		  "under_construction.jpg", 10000, 100, 10000000);
-  /*
-  robot_torso = Torso("Attractive Torso",2,",
-	 string in_image_filename, double in_cost,double in_weight, double in_max_power
+
+  Head robot_head()
+
+  
+ 
+  Torso robot_torso {"Attractive Torso",2, "Super awesome",
+      "under_contr", 666, 20000, 500, 3};
+
+  cout << robot_torso.get_battery_compartments() << endl;
+  cout << robot_torso.get_max_arms() << endl;
+  cout << robot_torso.get_cost() << endl;
+  cout << robot_torso.get_shipping_price() << endl;
+  cout << robot_torso.get_image_filename() << endl;
+  
+  
   
   return 0;
-  */
+  
 
 }
 

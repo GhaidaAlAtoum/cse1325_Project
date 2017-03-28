@@ -11,7 +11,7 @@ using namespace std;
 
 int main(){
 // Creating Main Menu 
-/*
+
 int choice;
 do
 {
@@ -31,7 +31,7 @@ switch(choice)
  default:cout<<"Not a valid choice.\n";
 }
 }while(coice != 6);
-return choice;*/
+return choice;
  
  	Torso T1( "T_1",1,"T_2","T_3",12,13,14,15);
 	Robot_Part & check = T1;
