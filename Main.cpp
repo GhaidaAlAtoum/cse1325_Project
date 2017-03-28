@@ -2,7 +2,7 @@
 #include "Robot_part.h"
 #include "Components.h"
 #include "Model.h"
-//#include "Product_Manager.h"
+#include "Product_Manager.h"
 #include <iostream>
 #include <vector>
 #include <string>
