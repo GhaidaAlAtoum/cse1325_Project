@@ -66,7 +66,8 @@ Main Menu
 }
 
 
-// Sub Menu  = PM_1_Menu 
+    
+   // Sub Menu  = PM_1_Menu   (validating  the Product Manager)
 
 string View::get_PM_1_menu(string &username, string &password) {
 string list = R"(
@@ -75,15 +76,36 @@ string list = R"(
 ----------------------------
 )";
  cout<<"Please enter your username: ";
- cin>> username;
+  cin>> username;
  cout<<"Please enetr your password: ";
  cin >> password;
 }
+ 
+    // Works of Product Manager after varification
+
+void View::get_PM_2_menu() {
+    string menu = R"(
+
+  PM Menu 2
+------------
+(1) Add Component
+(2) Add Model
+(3) Remove Model
+(4) Remove Component
+(5) Print all Model
+(6) Print all Component
+(7) Back to Main Menu
+(8) Change Username
+(9) Change Password
 
 
 // Boss 
 
-string View::get_Boss() {
+//PB_1 = validating the boss using username and password
+string View::get_PB_1()
+
+//PB_2 = pointed haired boss after validating  username adn password
+string View::get_PB_2() {
 
 string list = R"(
 -----------------------
@@ -99,8 +121,7 @@ string list = R"(
 )";
   
 
-//   Help 
-
+        //Help 
 string  View::get_help() {
   return "Try harder.";
 }
