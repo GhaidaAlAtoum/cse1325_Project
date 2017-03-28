@@ -46,7 +46,7 @@ string View::get_main_menu() {
 ===============================\n"+get_main_menu() + get_help();
 }
 
-string View::get_main_menu() {
+string  View::get_main_menu() {
     string menu = R"(
 ==================
     Robot'R'Us
