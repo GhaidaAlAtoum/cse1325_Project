@@ -9,9 +9,8 @@
 
 using namespace std;
 
-///////////////////////// 
- class view 
-////////////////////////////
+ 
+              // class view 
 
 class View {
   public:
