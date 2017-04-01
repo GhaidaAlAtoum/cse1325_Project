@@ -13,7 +13,7 @@ class Robot_Part
 {
 protected:
   string name;
-  int model_number;
+  string model_number;
   double cost;
   string description;
   string image_filename;
@@ -22,14 +22,22 @@ protected:
 public:
 
   Robot_Part();
-  Robot_Part(string, int, string, string, double, double);
+  Robot_Part(string, string, string, string, double, double);
+  /************ GET functions **************/
   double get_cost();
   double get_shipping_price();
   double get_weight();
   string get_image_filename();
   string get_part_description();
   string get_part_name();
-  int    get_part_number();
+  string get_part_number();
+  /************ SET functions **************/
+  void   Set_part_name(string);
+  void   set_part_model_num(string);
+  void   Set_part_description(string);
+  void   Set_part_image(string);
+  void   Set_part_cost(double);
+  void   Set_part_weight(double);
   /******** Virtual Functions ********/
   virtual int    Type()=0;
   virtual double get_max_power_Arm() { return 0;}

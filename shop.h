@@ -1,5 +1,6 @@
 #ifndef SHOP_H
 #define SHOP_H
+
 #include "Robot_part.h"
 #include "Components.h"
 #include "Model.h"
@@ -18,7 +19,7 @@ class shop
 		 static vector <Customers> shop_Customers;
 		 static Product_Manager shop_Product_Manager;
 		 static vector <Order&> shop_processed_Orders ; 
-         static vector<Order&>shop_unprocessed_Orders ;
+         static vector <Order&>  shop_unprocessed_Orders ;
          static vector <Sales_Associate> Sales_Associate_of_Shop;
 		 shop();
 		 	      
@@ -27,6 +28,7 @@ class shop
 		/****************** ADD ********************/
 		static void add_component(Robot_Part&);
         static void add_Model(Robot_model&);
+		static void add_Order(Order &);
 		/****************** REMOVE ********************/
         static void remove_component(int index);
         static void remove_Model(int index);

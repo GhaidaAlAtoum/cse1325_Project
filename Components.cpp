@@ -12,7 +12,7 @@ Arm::Arm()
   max_power = 0;
 }
 
-Arm::Arm(string in_name,int in_model_number,string in_description,
+Arm::Arm(string in_name,string in_model_number,string in_description,
 	 string in_image_filename, double in_cost,double in_weight, double in_max_power)
   :Robot_Part(in_name,
         in_model_number,in_description,
@@ -33,7 +33,7 @@ Torso::Torso():Robot_Part()
 }
 
 Torso::Torso(string in_name,
-	     int in_model_number, string in_description,
+	     string in_model_number, string in_description,
 	     string in_image_filename, double in_cost,
 	     double in_weight, int in_max_arms,
 	     int in_battery_compartments)
@@ -60,7 +60,7 @@ Locomotor::Locomotor()
 }
 
 Locomotor::Locomotor(string in_name,
-		       int in_model_number, string in_description,
+		       string in_model_number, string in_description,
 		       string in_image_filename, double in_cost,
 		     double in_weight, double in_max_speed,
 		     double in_max_power):Robot_Part(in_name,
@@ -80,7 +80,7 @@ Head::Head()
    power = 0;
 }
 
-Head::Head(string in_name,int in_model_number,string in_description,
+Head::Head(string in_name,string in_model_number,string in_description,
          string in_image_filename, double in_cost,double in_weight, double in_max_power)
   :Robot_Part(in_name,
         in_model_number,in_description,
@@ -99,7 +99,7 @@ Battery::Battery()
   power_available = 0.0;
   max_energy = 0.0;
 }
-Battery::Battery(string in_name,int in_model_number,string in_description,
+Battery::Battery(string in_name,string in_model_number,string in_description,
          string in_image_filename, double in_cost,double in_weight, double in_power_available, double in_max_energy)
   :Robot_Part(in_name,
         in_model_number,in_description,

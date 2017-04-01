@@ -16,9 +16,10 @@ private:
   double max_power;
 public:
   Arm();
-  Arm(string, int, string, string, double, double,double);
+  Arm(string, string, string, string, double, double,double);
   double get_max_power_Arm();
   int Type(){ return 1; }
+  void set_arm_power(double temp){ max_power = temp; }
 
 };
 /********************************** Torso class **********************************/
@@ -30,11 +31,13 @@ private:
   int battery_compartments;
   int max_arms;
 public:
+  Torso();
+  Torso(string, string, string, string, double, double, int, int);
   int Type(){ return 2; } 
   int get_battery_compartments();
   int get_max_arms();
-  Torso();
-  Torso(string, int, string, string, double, double, int, int);
+  void set_Torso_batt(int temp){ }
+  void set_Torso_max_arms(int temp){ }
 };
 /********************************** Locomotor class **********************************/
 
@@ -46,10 +49,11 @@ private:
 public:
   int Type(){ return 3; }
   Locomotor();
-  Locomotor(string, int, string, string, double,double, double, double);
+  Locomotor(string, string, string, string, double,double, double, double);
   double get_max_speed(){ return max_speed;}
   double get_max_power(){ return max_power;}
-  
+  void set_max_power(double temp){ max_power = temp; }
+  void set_max_speed(double temp){ max_speed =temp; }
 };
 /********************************** Head class **********************************/
 
@@ -62,10 +66,9 @@ private:
 public:
   int Type(){ return 4; }
   Head();
-  Head(string, int, string, string, double, double,double);
-
+  Head(string, string, string, string, double, double,double);
   double Getpower();
-
+  void set_head_power(double temp){ power = temp; }
 };
 /********************************** Battery class **********************************/
 
@@ -78,9 +81,10 @@ private:
 public:
   int Type(){ return 5; }
   Battery();
-  Battery(string, int,string,string, double,double, double, double);
-
+  Battery(string, string,string,string, double,double, double, double);
   double get_power();
   double get_max_energy();
+  void set_batt_power(double temp){ power_available=temp; }
+  void set_batt_energy(double temp){ max_energy=temp; }
 };
 #endif

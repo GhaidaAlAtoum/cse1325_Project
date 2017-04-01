@@ -105,13 +105,21 @@ int    Robot_model::Get_Head_power() {
 	else
 		return 0;
 }
-
-/******************* Get Model Cost  *********************/
+/******************* Get Number of Arms   *********************/
+int    Get_number_of_Arms() { 
+	return model_Arm.size();
+}
+/******************* Get Number of Batteries   *********************/
+int    Get_number_of_Batteries(){
+	return model_Battery.size();
+}
+/******************* Get Model Cost (Theoritical) *********************/
 double Robot_model::Get_Model_Cost(){
     double cost=0.0;
+	double shipping=0.0;
 	if(model_Arm.size()!=0){
 	 for( auto & num : model_Arm ){
-	     cost += num.get_cost();
+	     cost += num.get_cost() ;
 	 } 
 	} 
 	if(model_Battery.size()!=0){
@@ -122,11 +130,40 @@ double Robot_model::Get_Model_Cost(){
 	cost += model_Torso[0].get_cost();
 	cost += model_Head[0].get_cost();
 	cost += model_Locomotor[0].get_cost();
-	
+	shipping=this.Get_Model_Shipping_Cost();
+	cost += shipping;
+	return cost;
+}
+/******************* Get Model Shipping Cost   *********************/
+double Robot_model::Get_Model_Shipping_Cost(){
+	  double cost=0.0;
+	if(model_Arm.size()!=0){
+	 for( auto & num : model_Arm ){
+	     cost += num.get_shipping_price();
+	 } 
+	} 
+	if(model_Battery.size()!=0){
+	 for( auto & num : model_Battery ){
+	     cost += num.get_shipping_price();
+	 } 
+	} 
+	cost +=  model_Torso[0].get_shipping_price();
+	cost +=  model_Head[0].get_shipping_price();
+	cost +=  model_Locomotor[0].get_shipping_price();
 	return cost;
 }
 /******************* Get Model name   *********************/
+ string Robot_model::Get_model_name () {
+	 return model_name; 
+ }
 /******************* Get Model number *********************/
+ string Robot_model::Get_model_number () { 
+	 return model_number ;
+ }
+/*****************   Set Model Price ********************/
+void Robot_model::Set_Cost(double temp){
+    model_price=temp;
+}
 /******************* Print Model *********************/
 string Robot_model::print_model_Components(){
 	
