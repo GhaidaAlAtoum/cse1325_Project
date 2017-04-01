@@ -24,24 +24,31 @@ class shop
 		 	      
   public:
         static shop& Instance_shop();
+		/****************** ADD ********************/
 		static void add_component(Robot_Part&);
         static void add_Model(Robot_model&);
+		/****************** REMOVE ********************/
         static void remove_component(int index);
         static void remove_Model(int index);
+		/****************** PRINT********************/
         static string Print_Catalog_Models();
         static string Print_Catalog_Components();
 		static string Print_Unprocessed_Orders() ;
         static string Print_Processed_Orders () ;
-
+        /****************** SAVE ********************/
 		static void save_List_SA();
         static void save_PHB_info();
         static void save_PM_info();
 		static void save_Robot_Models();
 		static void save_Robot_Components();
+		/****************** READ ********************/
         static void Read_Robot_Components();
         static void Read_Robot_Models();
-	    static void Read_Robot_Components();
-		static void Read_Robot_Models();
+	    static void Read_SA_List();
+		static void Read_PHB_info();
+		static void Read_PM_info();
+		/****************** Process Order ******************/
+		
 		
 };
 

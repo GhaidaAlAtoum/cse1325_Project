@@ -32,9 +32,11 @@ Robot_Part::Robot_Part(string in_name,
 int    Robot_Part::get_part_number(){return model_number;}
 double Robot_Part::get_cost() {return cost;}
 double Robot_Part::get_shipping_price() {return (weight * 1.8);}
+double Robot_Part::get_weight(){return weight; }
 string Robot_Part::get_image_filename() {return image_filename;}
 string Robot_Part::get_part_name() {return name; }
 string Robot_Part::get_part_description(){ return description;}
+
 
 
 

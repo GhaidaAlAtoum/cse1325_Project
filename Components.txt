@@ -1,0 +1,52 @@
+1
+arm1
+100122
+arm1 on march
+arm1.jpg
+100.1
+60
+90
+5
+battery1
+100144
+batt1 on march
+batt1.jpg
+500.43
+9.5
+12
+15.3
+3
+loco1 loco
+55647
+loco1 on ama
+loco1.JPG
+1000.655
+897
+1000
+5556
+4
+Head1
+155789
+thsi aia s fhabf
+fjfhf.jpg
+54 
+54
+5
+2
+Torso2
+1008672
+this is a torso
+torso.JPG
+54
+222
+55
+66
+99999
+1
+arm222
+1001225468
+arm1 on aprilh
+arm2.jpg
+1055.1
+655
+987

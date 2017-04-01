@@ -25,6 +25,7 @@ public:
   Robot_Part(string, int, string, string, double, double);
   double get_cost();
   double get_shipping_price();
+  double get_weight();
   string get_image_filename();
   string get_part_description();
   string get_part_name();
