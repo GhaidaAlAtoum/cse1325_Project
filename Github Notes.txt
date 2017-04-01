@@ -1,0 +1,47 @@
+
+- Write git init to start a new repo
+
+- Write status to see the status and stuff
+
+- write touch filename.type to make a new file
+
+- To add a file to git, must stage it. type git add filename to add it to the staging area.
+
+- To commit something, type git commit -m COMMAND MESSAGE
+
+- Create a repository online on github
+
+- git remote add origin https://github.com/gitily/Test-Repository
+    Will link the repository on your computer to the one online.
+
+- git push -u origin master pushes local commits to the repo online. -u tells it to remember the parameters so that next time it is just necessary to type git push
+
+- git pull origin master will get the changes that other people made into your local repo
+
+- git diff HEAD will see what is different between our last commit and the latest pull.
+
+- git reset filename will unstage a file 
+
+- git checkout -- filename will revert a file to the last commit
+
+- git branch branchname makes a new branch
+
+- git checkout branchname switches you to that branch
+
+- git log shows the stuff you've done (all commits)
+
+- git reset HEAD <file> will unstage a file (unstaging is the state of the files before committing)
+
+- git checkout -- <file> will delete the changes to the files you've made in your directory. So if you changed something but don't wanna commit, you can use this. But be careful.
+
+
+
+
+
+
+
+
+
+
+
+
