@@ -42,7 +42,11 @@ class Controller: public Fl_Window
 	void show_main_window() {this->show();}
 	void hide_main_window() {this->hide();}
 	string person_type;
+
+	double string_to_double();
+	int string_to_int();
 	
+
 	private:
 	
 	// Contained classes;
@@ -88,17 +92,28 @@ class Controller: public Fl_Window
 	Fl_Window* PM_mainmenu_window;
 	Fl_Button* PM_add_component_button;
 	Fl_Button* PM_add_model_button;
+	Fl_Button* PM_menu_back_button;
 	
 	void PM_add_component_menu();
 	static void PM_add_component_button_cb(Fl_Widget*, void*);
 	inline void PM_add_component_button_cb_i();	
+	static void PM_menu_back_button_cb(Fl_Widget*,void*);
+	inline void PM_menu_back_button_cb_i();
 	
+
+	// ADD-COMPONENT MENU
+
 	Fl_Window* PM_ACM; // ACM = ADD COMPONENT MENU
 	Fl_Button* PM_ACM_addHead;
 	Fl_Button* PM_ACM_addArm;
 	Fl_Button* PM_ACM_addTorso;
 	Fl_Button* PM_ACM_add_battery;
 	Fl_Button* PM_ACM_add_locomotor;
+	Fl_Button* PM_ACM_back_button;
+	
+	static void PM_ACM_back_button_cb(Fl_Widget* w, void* v);
+	inline void PM_ACM_back_button_cb_i();
+	
 	
 	// Add head menu
 	
@@ -112,11 +127,14 @@ class Controller: public Fl_Window
 	Fl_Input* PM_AHM_weight_input;
 	Fl_Input* PM_AHM_power_input;
 	Fl_Button* PM_AHM_create_button;
+	Fl_Button* PM_AHM_cancel_button;
 	
 	static void PM_ACM_addhead_cb(Fl_Widget*, void*);
 	inline void PM_ACM_addhead_cb_i();
 	static void PM_AHM_create_button_cb(Fl_Widget*,void*);
 	inline void PM_AHM_create_button_cb_i();
+	static void PH_AHM_cancel_button_cb(Fl_Widget*,void*);
+	inline void PH_AHM_cancel_button_cb_i();
 	
 	
 	// SA MENU
@@ -126,6 +144,19 @@ class Controller: public Fl_Window
 	Fl_Button* SA_CRO_button; // 
 	
 };
+
+///////////////////////////////////
+// HELPING FUNCTIONS //
+///////////////////////////
+
+
+double Controller::string_to_double() {
+	
+}
+
+int Controller::string_to_int() {
+	
+}
 
 ////////////////////////////////////
 // Main Menu Functions, callbacks //
@@ -227,17 +258,31 @@ void Controller::PM_menu_func() {
 	PM_add_component_button = new Fl_Button(10,10,200,50,"Add Component");
 	PM_add_component_button->callback(PM_add_component_button_cb, this);
 	PM_add_model_button = new Fl_Button(10, 70, 200, 50, "Add Model");
+	PM_menu_back_button = new Fl_Button(10,400,100,50,"Back");
+	PM_menu_back_button->callback(PM_menu_back_button_cb, this);
+	
 	
 	PM_mainmenu_window->show();
 	end();
 	
 }
 
+void Controller::PM_menu_back_button_cb(Fl_Widget* w, void* v) {
+	((Controller*)v)->PM_menu_back_button_cb_i();	
+}
+void Controller::PM_menu_back_button_cb_i() {
+	PM_mainmenu_window->hide();
+	show_main_window();
+	
+}
+
+
 void Controller::PM_add_component_button_cb(Fl_Widget* w, void* v) {
 	((Controller*)v)->PM_add_component_button_cb_i();	
 }
 void Controller::PM_add_component_button_cb_i() {
 		PM_add_component_menu();
+		PM_mainmenu_window->hide();
 }
 
 
@@ -251,10 +296,21 @@ void Controller::PM_add_component_menu() {
 	PM_ACM_addTorso = new Fl_Button(10,130,200,50,"Add Torso");
 	PM_ACM_add_battery = new Fl_Button(10,190,200,50,"Add Battery");
 	PM_ACM_add_locomotor = new Fl_Button(10,250,200,50,"Add Locomotor");
+	PM_ACM_back_button = new Fl_Button(10,400,100,50,"Back");
+	PM_ACM_back_button->callback(PM_ACM_back_button_cb, this);
 	
 	PM_ACM->show();
 										 
 	
+}
+
+void Controller::PM_ACM_back_button_cb(Fl_Widget* w, void* v) {
+	((Controller*)v)->PM_ACM_back_button_cb_i();	
+}
+void Controller::PM_ACM_back_button_cb_i() {
+	PM_ACM->hide();
+	PM_menu_func();
+
 }
 
 //////////////////////
@@ -266,6 +322,7 @@ void Controller::PM_ACM_addhead_cb(Fl_Widget* w, void* v) {
 }
 void Controller::PM_ACM_addhead_cb_i() {
 	PM_AHM_func();		
+	PM_ACM->hide();
 }
 
 void Controller::PM_AHM_create_button_cb(Fl_Widget* w, void* v) {
@@ -290,11 +347,22 @@ void Controller::PM_AHM_func() {
 	PM_AHM_image_input = new Fl_Input(70,190,200,50,"Image: ");
 	PM_AHM_weight_input = new Fl_Input(70,250,200,50,"Weight: ");
 	PM_AHM_power_input = new Fl_Input(70,310,200,50,"Power: ");
-	PM_AHM_create_button = new Fl_Button(70,380,200,50,"Create");
+	PM_AHM_create_button = new Fl_Button(70,380,100,50,"Create");
 	PM_AHM_create_button->callback(PM_AHM_create_button_cb, this);
-	
+	PM_AHM_cancel_button = new Fl_Button(190,380,100,50,"Cancel");
+	PM_AHM_cancel_button->callback(PH_AHM_cancel_button_cb, this);
 	
 	PM_AHM_window->show();
+	
+}
+
+void Controller::PH_AHM_cancel_button_cb(Fl_Widget* w, void* v) {
+	((Controller*)v)->PH_AHM_cancel_button_cb_i();		
+}
+
+void Controller::PH_AHM_cancel_button_cb_i() {
+	PM_AHM_window->hide();
+	PM_ACM->show();
 	
 }
 
