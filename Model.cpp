@@ -1,9 +1,15 @@
+#include "shop.h"
 #include "Robot_part.h"
 #include "Components.h"
 #include "Model.h"
+#include "Product_Manager.h"
+#include "Order.h"
+#include "customer.h"
+#include "Sales_Associate.h"
 #include <iostream>
 #include <vector>
 #include <string>
+#include <fstream>
 
 using namespace std;
 /******************* Constructor *********************/
@@ -11,9 +17,6 @@ Robot_model::Robot_model() {}
 Robot_model::Robot_model(string in_name , string in_num){
            model_name = in_name;
 	       model_number = in_num;
-}
-Robot_model::Robot_model(const Robot_model & obj){
-  
 }
 /******************* Add Arm *********************/
 bool Robot_model::add_Arm(Arm in_Arm){
@@ -106,11 +109,11 @@ int    Robot_model::Get_Head_power() {
 		return 0;
 }
 /******************* Get Number of Arms   *********************/
-int    Get_number_of_Arms() { 
+int Robot_model::Get_number_of_Arms() { 
 	return model_Arm.size();
 }
 /******************* Get Number of Batteries   *********************/
-int    Get_number_of_Batteries(){
+int Robot_model::Get_number_of_Batteries(){
 	return model_Battery.size();
 }
 /******************* Get Model Cost (Theoritical) *********************/
@@ -130,7 +133,7 @@ double Robot_model::Get_Model_Cost(){
 	cost += model_Torso[0].get_cost();
 	cost += model_Head[0].get_cost();
 	cost += model_Locomotor[0].get_cost();
-	shipping=this.Get_Model_Shipping_Cost();
+	shipping=this->Get_Model_Shipping_Cost();
 	cost += shipping;
 	return cost;
 }
@@ -162,7 +165,7 @@ double Robot_model::Get_Model_Shipping_Cost(){
  }
 /*****************   Set Model Price ********************/
 void Robot_model::Set_Cost(double temp){
-    model_price=temp;
+    model_Price=temp;
 }
 /******************* Print Model *********************/
 string Robot_model::print_model_Components(){

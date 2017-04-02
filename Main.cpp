@@ -1,17 +1,23 @@
 #include "Robot_part.h"
 #include "Components.h"
 #include "Model.h"
-//#include "Product_Manager.h"
+#include "Sales_Associate.h"
+#include "Product_Manager.h"
+#include "Order.h"
+#include "customer.h"
+#include "PHB.h"
+#include "shop.h"
 #include <iostream>
 #include <vector>
 #include <string>
+#include <fstream>
 
 using namespace std;
 
 
 int main(){
 // Creating Main Menu 
-
+/*
 int choice;
 do
 {
@@ -32,7 +38,7 @@ switch(choice)
 }
 }while(coice != 6);
 return choice;
- 
+
  	Torso T1( "T_1",1,"T_2","T_3",12,13,14,15);
 	Robot_Part & check = T1;
 	cout<<"Torso Battery Compartments  " <<check.get_battery_compartments()<<endl;
@@ -97,7 +103,7 @@ return choice;
 	mod1.add_Arm(A2);
 	
 	cout<<"Modle Torso Max arms "<<mod1.Get_Torso_Max_arms()<<endl;
-	
+	*/
 return 0; }
 
 

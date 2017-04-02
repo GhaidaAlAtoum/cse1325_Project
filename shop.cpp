@@ -1,12 +1,18 @@
 #include "shop.h"
+#include "Sales_Associate.h"
 #include "Robot_part.h"
 #include "Components.h"
 #include "Model.h"
 #include "Product_Manager.h"
+#include "Order.h"
+#include "customer.h"
 #include <iostream>
 #include <vector>
 #include <string>
 #include <fstream>
+#include<sstream>
+#include<cstdio>
+
 
 using namespace std;
 
@@ -18,14 +24,17 @@ shop& shop::Instance_shop(){
            return instance;
 }
 /****************** ADD ********************/
-void shop::add_component(Robot_Part& temp){
+void shop::add_component(Robot_Part * temp){
     	components.push_back(temp);
 }
-void shop::add_Model(Robot_model&){
+void shop::add_Model(Robot_model* temp){
     	Models.push_back(temp);
 }
-void shop::add_Order(Order & temp){
+void shop::add_Order(Order *temp){
      shop_unprocessed_Orders.push_back(temp);
+}
+void shop::add_SA(SA * temp){
+     shop::Sales_Associate_of_Shop.push_back(temp);
 }
 /****************** REMOVE ********************/
 void shop::remove_component(int index){
@@ -34,13 +43,18 @@ void shop::remove_component(int index){
 void shop::remove_Model(int index){
 	Models.erase(Models.begin() + index);
 }
+void shop::remove_SA(int index){
+	    Sales_Associate_of_Shop.erase(Sales_Associate_of_Shop.begin()+index);
+}
 /****************** PRINT********************/
-void shop::Print_Catalog_Models(){
+string shop::Print_Catalog_Models(){
 	
 }
-void shop::Print_Catalog_Components(){
+string shop::Print_Catalog_Components(){
 	
 }
+string shop::Print_Unprocessed_Orders(){}
+string shop::Print_Processed_Orders (){}
 /****************** SAVE ********************/
 void shop::save_Robot_Models(){
 	char c='*';
@@ -52,61 +66,60 @@ void shop::save_Robot_Models(){
 	
 	ShopFile.close();
 }
-
 void shop::save_Robot_Components(){
-	ofstream ShopFile ("Robot_Components_Saved.txt");
+	ofstream shopFile ("Robot_Components_Saved.txt");
 	for( auto & num : components ){
-	    switch(num.Type()){
-			case 1: ShopFile<<num.Type()<<endl;
-				    shopFile<<num.get_part_name()<<endl;
-				    shopFile<<num.get_part_number()<<endl;
-				    shopFile<<num.get_part_description()<<endl;
-				    shopFile<<num.get_image_filename()<<endl;
-				    shopFile<<num.get_cost()<<endl;
-				    shopFile<<num.get_weight()<<endl;
-				    shopFile<<num.get_max_power_Arm<<endl;
+	    switch(num->Type()){
+			case 1: shopFile<<num->Type()<<endl;
+				    shopFile<<num->get_part_name()<<endl;
+				    shopFile<<num->get_part_number()<<endl;
+				    shopFile<<num->get_part_description()<<endl;
+				    shopFile<<num->get_image_filename()<<endl;
+				    shopFile<<num->get_cost()<<endl;
+				    shopFile<<num->get_weight()<<endl;
+				    shopFile<<num->get_max_power_Arm()<<endl;
 				    break;
-			case 2: ShopFile<<num.Type()<<endl;
-				    shopFile<<num.get_part_name()<<endl;
-				    shopFile<<num.get_part_number()<<endl;
-				    shopFile<<num.get_part_description()<<endl;
-				    shopFile<<num.get_image_filename()<<endl;
-				    shopFile<<num.get_cost()<<endl;
-				    shopFile<<num.get_weight()<<endl;
-				    shopFile<<num.get_max_arms()<<endl;
-				    shopFile<<num.get_battery_compartments()<<endl;
+			case 2: shopFile<<num->Type()<<endl;
+				    shopFile<<num->get_part_name()<<endl;
+				    shopFile<<num->get_part_number()<<endl;
+				    shopFile<<num->get_part_description()<<endl;
+				    shopFile<<num->get_image_filename()<<endl;
+				    shopFile<<num->get_cost()<<endl;
+				    shopFile<<num->get_weight()<<endl;
+				    shopFile<<num->get_max_arms()<<endl;
+				    shopFile<<num->get_battery_compartments()<<endl;
 				
 				    break;
-			case 3: ShopFile<<num.Type()<<endl;
-				    shopFile<<num.get_part_name()<<endl;
-				    shopFile<<num.get_part_number()<<endl;
-				    shopFile<<num.get_part_description()<<endl;
-				    shopFile<<num.get_image_filename()<<endl;
-				    shopFile<<num.get_cost()<<endl;
-				    shopFile<<num.get_weight()<<endl;
-				    shopFile<<num.get_max_speed()<<endl;
-				    shopFile<<num.get_max_power()<<endl;
+			case 3: shopFile<<num->Type()<<endl;
+				    shopFile<<num->get_part_name()<<endl;
+				    shopFile<<num->get_part_number()<<endl;
+				    shopFile<<num->get_part_description()<<endl;
+				    shopFile<<num->get_image_filename()<<endl;
+				    shopFile<<num->get_cost()<<endl;
+				    shopFile<<num->get_weight()<<endl;
+				    shopFile<<num->get_max_speed()<<endl;
+				    shopFile<<num->get_max_power()<<endl;
 				
 			        break;
-			case 4: ShopFile<<num.Type()<<endl;
-				    shopFile<<num.get_part_name()<<endl;
-				    shopFile<<num.get_part_number()<<endl;
-				    shopFile<<num.get_part_description()<<endl;
-				    shopFile<<num.get_image_filename()<<endl;
-				    shopFile<<num.get_cost()<<endl;
-				    shopFile<<num.get_weight()<<endl;
-				    shopFile<<num.Getpower()<<endl;
+			case 4: shopFile<<num->Type()<<endl;
+				    shopFile<<num->get_part_name()<<endl;
+				    shopFile<<num->get_part_number()<<endl;
+				    shopFile<<num->get_part_description()<<endl;
+				    shopFile<<num->get_image_filename()<<endl;
+				    shopFile<<num->get_cost()<<endl;
+				    shopFile<<num->get_weight()<<endl;
+				    shopFile<<num->Getpower()<<endl;
 				
 				    break;
-			case 5: ShopFile<<num.Type()<<endl;
-				    shopFile<<num.get_part_name()<<endl;
-				    shopFile<<num.get_part_number()<<endl;
-				    shopFile<<num.get_part_description()<<endl;
-				    shopFile<<num.get_image_filename()<<endl;
-				    shopFile<<num.get_cost()<<endl;
-				    shopFile<<num.get_weight()<<endl;
-				    shopFile<<nem.get_power()<<endl;
-				    shopFile<<num.get_max_energy()<<endl;
+			case 5: shopFile<<num->Type()<<endl;
+				    shopFile<<num->get_part_name()<<endl;
+				    shopFile<<num->get_part_number()<<endl;
+				    shopFile<<num->get_part_description()<<endl;
+				    shopFile<<num->get_image_filename()<<endl;
+				    shopFile<<num->get_cost()<<endl;
+				    shopFile<<num->get_weight()<<endl;
+				    shopFile<<num->get_power()<<endl;
+				    shopFile<<num->get_max_energy()<<endl;
 				
 				    break;				
 				
@@ -114,7 +127,7 @@ void shop::save_Robot_Components(){
 		 
 	 } 
 	
-	ShopFile.close();
+	shopFile.close();
 }
 void shop::save_List_SA(){
 	
@@ -147,7 +160,7 @@ void shop::Read_Robot_Components(){
 	if(file2.is_open()){
 		while((!file2.eof()) && i<n){
 			getline(file2,line);
-			stringstream(line)>>type;
+			std::stringstream(line)>>type;
 			switch(type) {
 				case 1: 
 					    getline(file2,line); name=line;A.Set_part_name(name);
@@ -157,7 +170,7 @@ void shop::Read_Robot_Components(){
 					    getline(file2,line);stringstream(line)>>cost;A.Set_part_cost(cost);
 					    getline(file2,line);stringstream(line)>>weight;A.Set_part_weight(weight);
 						getline(file2,line);stringstream(line)>>arm_power;A.set_arm_power(arm_power);
-					    shop::add_component(A);
+					    shop::add_component(&A);
 					    i+=8;
 					    break;
 				case 2:  
@@ -169,7 +182,7 @@ void shop::Read_Robot_Components(){
 					    getline(file2,line);stringstream(line)>>weight;T.Set_part_weight(weight);
 					    getline(file2,line);stringstream(line)>>Torso_max_arms;T.set_Torso_max_arms(Torso_max_arms);
 					    getline(file2,line);stringstream(line)>>Torso_batt_com;	T.set_Torso_batt(Torso_batt_com);
-					    shop::add_component(T);
+					    shop::add_component(&T);
 					    i+=8;
 					    break;
 				case 3: 
@@ -181,7 +194,7 @@ void shop::Read_Robot_Components(){
 					    getline(file2,line);stringstream(line)>>weight;L.Set_part_weight(weight);
 					    getline(file2,line);stringstream(line)>>loco_speed;L.set_max_speed(loco_speed);
 					    getline(file2,line);stringstream(line)>>loco_power;L.set_max_power(loco_power);	
-					    shop::add_component(L);
+					    shop::add_component(&L);
 					    i+=9;
 					    break;
 				case 4: 
@@ -192,7 +205,7 @@ void shop::Read_Robot_Components(){
 					    getline(file2,line);stringstream(line)>>cost;H.Set_part_cost(cost);	
 					    getline(file2,line);stringstream(line)>>weight;H.Set_part_weight(weight);
 					    getline(file2,line);stringstream(line)>>head_power;H.set_head_power(head_power);
-					    shop::add_component(H);
+					    shop::add_component(&H);
 					    i+=8;
 					    break;
 				case 5: 
@@ -203,8 +216,8 @@ void shop::Read_Robot_Components(){
 					    getline(file2,line);stringstream(line)>>cost;B.Set_part_cost(cost);	
 					    getline(file2,line);stringstream(line)>>weight;B.Set_part_weight(weight);
 					    getline(file2,line);stringstream(line)>>batt_power;B.set_batt_power(batt_power);
-					    getline(file2,line);stringstream(line)>>batt_energy;B.set_batt_energy(set_batt_energy);
-					    shop::add_component(B);
+					    getline(file2,line);stringstream(line)>>batt_energy;B.set_batt_energy(batt_energy);
+					    shop::add_component(&B);
 					    i+=9;	
 					    break;
 							}
@@ -225,7 +238,23 @@ void shop::Read_PHB_info(){
 void shop::Read_PM_info(){
 	
 }
+/****************** PHB AND SA ******************/
 
+void  shop::Give_Deny_Raise_SA(int index, int yes_No){
+   if(yes_No ==1){
+	     int X = Sales_Associate_of_Shop[index]->number_of_processed_orders();
+	     double Raise_by = X * 10; /* 10 dollars per Processed Order */
+	     Sales_Associate_of_Shop[index]->Give_Raise(Raise_by);
+   }
+   else
+   {
+	    Sales_Associate_of_Shop[index]->Give_Raise(0.0);
+   }
+}
+/****************** Process Order ******************/
+void shop::Process_Order(int index){
+	
+}
 
 
 

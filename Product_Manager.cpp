@@ -1,8 +1,11 @@
 #include "Product_Manager.h"
+#include "Model.h"
 #include "shop.h"
-#include<iostream>
+#include <iostream>
+#include <vector>
+#include <string>
 
-using namespace std
+using namespace std;
 /******************* Setting Default Values for name and Password *********************/
 string Product_Manager::manager_name = "Manager_Default";
 string Product_Manager::manager_password = "Manager_Default";
@@ -22,39 +25,39 @@ bool Product_Manager::check_name_pass(string in_name, string in_pass){
 void Product_Manager::change_name(string new_name){
      manager_name = new_name;
 }
-void Product_Manager::change_pass(string neW_pass){
+void Product_Manager::change_pass(string new_pass){
 	manager_password = new_pass;
 }
 /******************* Instance Arm *********************/
-void Product_Manager::Instance_new_Arm(string name, int model_number, string description, string image_filename,
+void Product_Manager::Instance_new_Arm(string name, string model_number, string description, string image_filename,
 									   double cost, double weight,double max_power)
 {   
-	Arm Temp(name,model_number,description,image_filename,cost,weight,max_power);
+	Arm temp(name,model_number,description,image_filename,cost,weight,max_power);
 		push_component(temp);
 }
 /******************* Instance Torso *********************/
-void Product_Manager::Instance_new_Torso(string name, int model_number, string description, string image_filename, double cost,
+void Product_Manager::Instance_new_Torso(string name, string model_number, string description, string image_filename, double cost,
 										 double weight, int max_arms, int battery_compartments)
 {   
-	Tosro temp(name,model_number,description,image_filename,cost,weight,max_arms,battery_compartments);
+	Torso temp(name,model_number,description,image_filename,cost,weight,max_arms,battery_compartments);
 	push_component(temp);
 }
 /******************* Instance Locomotor *********************/
-void Product_Manager::Instance_new_Locomotor(string name, int model_number, string description, string image_filename, double cost,
+void Product_Manager::Instance_new_Locomotor(string name, string model_number, string description, string image_filename, double cost,
 											 double weight, double max_speed, double max_power)
 {   
 	Locomotor temp(name,model_number,description,image_filename,cost,weight,max_speed,max_power);
 	push_component(temp);
 }
 /******************* Instance Head *********************/
-void Product_Manager::Instance_new_Head(string name, int model_number, string description, string image_filename, 
+void Product_Manager::Instance_new_Head(string name, string model_number, string description, string image_filename, 
 										double cost, double weight,double max_power)
 {   
 	Head temp(name,model_number,description,image_filename,cost,weight,max_power);
 	push_component(temp);
 }
 /******************* Instance Battery *********************/
-void Product_Manager::Instance_new_Battery(string name, int model_number,string description,string image_filename, 
+void Product_Manager::Instance_new_Battery(string name, string model_number,string description,string image_filename, 
 										   double cost,double weight, double power_available, double max_energy)
 {   
 	Locomotor temp(name,model_number,description,image_filename,cost,weight,power_available,max_energy);
@@ -70,12 +73,12 @@ void Product_Manager::Instance_new_model(string m_name,string m_number)
 /******************* Push Component/Model *********************/
 void Product_Manager::push_component(Robot_Part& temp)
 {
-	shop::add_component(temp);
+	shop::add_component(&temp);
 	
 }
-void Product_Manager::push_Model(Robot_Model& temp)
+void Product_Manager::push_Model(Robot_model& temp)
 {
-	shop::add_Model(temp);	
+	shop::add_Model(&temp);	
 }
 /******************* Pull Component/Model *********************/
 void   Product_Manager::pull_component(int component_index){

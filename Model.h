@@ -28,8 +28,8 @@ class Robot_model
    /******************* Get *********************/
           string Get_model_name ();
 	      string Get_model_number () ;
-		  int    Get_number_of_Arms() { return model_Arm.size();}
-	      int    Get_number_of_Batteries(){ return model_Battery.size();}
+		  int    Get_number_of_Arms() ;
+	      int    Get_number_of_Batteries();
 		  int    Get_Torso_Bat_Comp();
 	      int    Get_Torso_Max_arms();
 		  int    Get_Head_power();
