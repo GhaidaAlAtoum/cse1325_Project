@@ -64,7 +64,7 @@ void Add_cb( Fl_Widget* o , void* ) {
    Image = iw4->value();
    Max_Power_s =(string) iw5->value();
    Max_Power = std::stod(Max_Power_s);
-   Arm temp (Name, Model_Number, Description, Image, Cost, Weight, Power);
+   //  Arm temp (Name, Model_Number, Description, Image, Cost, Weight, Power);
    std::cout<< Name << ' ' << Model_Number << ' ' << Cost << ' ' << Description << ' ' << Image << ' ' << Max_Power << endl;
    //Fl_Output* ow = (Fl_Output*) b -> parent() -> child(3);
    // ow->value( iw->value() );
