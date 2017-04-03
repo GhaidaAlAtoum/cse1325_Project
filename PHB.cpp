@@ -6,7 +6,7 @@
 #include <iostream>
 
 using namespace std;
-
+vector<string> PHB::raise_requests;
 double PHB::Total_Profits=0.0;
 int PHB::Total_Sales=0;
 /******************* Get Instance *********************/
@@ -19,9 +19,13 @@ void PHB::add_raise_request(string temp){
 	raise_requests.push_back(temp);
 }
 /******************* Check for Raise Requests *********************/
- string PHB::Check_for_raise_req(){
- 
- }
+vector<string> PHB::Check_for_raise_req(){
+	vector<string> temp;
+	   for(auto &num :raise_requests){
+	     temp.push_back(num);
+	   }
+	   return temp;
+   }
 /******************* Add/Remove SA *********************/
 void   PHB::Add_SA(string name,string pass){
     SA temp(name,pass);

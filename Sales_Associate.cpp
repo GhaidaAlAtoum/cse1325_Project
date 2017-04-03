@@ -37,7 +37,7 @@ void SA::Request_Raise(){
 }
 /****************** Create List of Processed Orders ******************/
 string SA::List_Of_Processed_Orders(){
-   
+   return("NONE");
 }
 /****************** Number of processed Orders ******************/
 int SA::number_of_processed_orders(){

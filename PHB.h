@@ -19,7 +19,7 @@ class PHB {
 	/******************* Add Raise *********************/
 	 static void add_raise_request(string);
 	/******************* Check for Raise Requests *********************/
-	 string Check_for_raise_req();
+	 vector<string> Check_for_raise_req();
 	/******************* Add/Remove SA *********************/
 	 void   Add_SA(string,string);
 	 void   Remove_SA(int);

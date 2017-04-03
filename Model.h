@@ -26,18 +26,30 @@ class Robot_model
 	/******************* Print Model Components *********************/   
 		  string print_model_Components();
    /******************* Get *********************/
-          string Get_model_name ();
-	      string Get_model_number () ;
-		  int    Get_number_of_Arms() ;
-	      int    Get_number_of_Batteries();
-		  int    Get_Torso_Bat_Comp();
-	      int    Get_Torso_Max_arms();
-		  int    Get_Head_power();
-		  double Get_Locomotor_max_speed();
-	      double Get_Locomotor_max_power();
+          string Get_model_name ();  //done
+	      string Get_model_number () ;//done
+		  string Get_Torso_part_name();//done
+		  string Get_Torso_part_number();//done
+		  string Get_locomotor_part_name();//done
+		  string Get_locomotor_part_number();//done
+		  string Get_Head_part_name();//done
+		  string Get_Head_part_number();//done
+   vector<string> Get_each_Battery_name();//done
+   vector<string> Get_each_Battery_number();//done
+   vector<string> Get_each_Arm_name();//done
+   vector<string> Get_each_Arm_number();//done
+		  int    Get_number_of_Arms() ;//done
+	      int    Get_number_of_Batteries();//done
+		  int    Get_Torso_Bat_Comp();//done
+	      int    Get_Torso_Max_arms();//done
+		  int    Get_Head_power();//done
+   vector<double> Get_Battery_available_power();//done
+   vector<double> Get_Battery_max_energy();//done
+		  double Get_Locomotor_max_speed();//done
+	      double Get_Locomotor_max_power();//done
 		  double Get_Model_Cost();
 		  double Get_Model_Shipping_Cost();
-		  vector<int> Get_Arms_power() ;
+   vector<double> Get_Arms_power() ;
     /******************* Add *********************/
           bool   add_Torso(Torso);
 	      bool   add_Head(Head);

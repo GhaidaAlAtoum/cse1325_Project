@@ -9,7 +9,7 @@ using namespace std;
 Arm::Arm()
 :Robot_Part() 
 {
-  max_power = 0;
+ max_power=0;
 }
 
 Arm::Arm(string in_name,string in_model_number,string in_description,
@@ -17,12 +17,14 @@ Arm::Arm(string in_name,string in_model_number,string in_description,
   :Robot_Part(in_name,
         in_model_number,in_description,
 	in_image_filename, in_cost,
-	in_weight)
+	in_weight) 
 {
   max_power = in_max_power;
-}
+	}
 
-double Arm::get_max_power_Arm() {return max_power;}
+double Arm::get_max_power_Arm() {
+	return (max_power);
+}
 /********************************** Torso class **********************************/
 Torso::Torso():Robot_Part()
 {

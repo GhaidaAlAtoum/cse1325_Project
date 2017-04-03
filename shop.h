@@ -17,18 +17,20 @@ using namespace std;
 class shop
 {
   private:
-         static std::vector <Robot_Part*> components;
-		 static std::vector <Robot_model*> Models;
-		 static std::vector <customer> shop_Customers;
+         static vector <Robot_Part*> components;
+		 static vector <Robot_model*> Models;
+		 static vector <customer> shop_Customers;
 		 static Product_Manager shop_Product_Manager;
-		 static std::vector <Order*> shop_processed_Orders ; 
-         static std::vector <Order*>  shop_unprocessed_Orders ;
-         static std::vector <SA*> Sales_Associate_of_Shop;
-		 shop();
+		 static vector <Order*> shop_processed_Orders ; 
+         static vector <Order*>  shop_unprocessed_Orders ;
+         static vector <SA*> Sales_Associate_of_Shop;
+		 shop(){
+		 }
 		 	      
   public:
-        static shop& Instance_shop();
+        static shop & Instance_shop();
 		/****************** ADD ********************/
+		static void add_PM(Product_Manager&);
 		static void add_component(Robot_Part*);
         static void add_Model(Robot_model*);
 		static void add_Order(Order *);

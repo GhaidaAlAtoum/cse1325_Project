@@ -20,7 +20,7 @@ public:
   double get_max_power_Arm();
   int Type(){ return 1; }
   void set_arm_power(double temp){ max_power = temp; }
-
+  
 };
 /********************************** Torso class **********************************/
 

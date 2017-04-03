@@ -15,15 +15,22 @@
 
 
 using namespace std;
-
-shop::shop() {
-}
-
-shop& shop::Instance_shop(){
+vector <Robot_Part*> shop::components;
+vector <Robot_model*> shop::Models;
+vector <customer> shop::shop_Customers;
+Product_Manager shop::shop_Product_Manager = Product_Manager::get_Instance();
+vector <Order*> shop::shop_processed_Orders ; 
+vector <Order*>  shop::shop_unprocessed_Orders ;
+vector <SA*> shop::Sales_Associate_of_Shop;
+shop& shop::Instance_shop( )
+{
 	static shop instance;
            return instance;
 }
 /****************** ADD ********************/
+void shop::add_PM(Product_Manager & temp){
+ shop_Product_Manager=temp;	
+}
 void shop::add_component(Robot_Part * temp){
     	components.push_back(temp);
 }

@@ -20,7 +20,7 @@ Robot_model::Robot_model(string in_name , string in_num){
 }
 /******************* Add Arm *********************/
 bool Robot_model::add_Arm(Arm in_Arm){
-	if(model_Arm.size()<=2) {
+	if(model_Arm.size()<2) {
 	     model_Arm.push_back(in_Arm);
 		return 1;
 	 }
@@ -66,15 +66,30 @@ void Robot_model::add_Battery(Battery in_Battery){
 	model_Battery.push_back(in_Battery);
 		}
 /******************* Get Arm(s) Info  *********************/
-vector<int> Robot_model::Get_Arms_power() {
-    vector <int> power ;
+vector<double> Robot_model::Get_Arms_power() {
+    vector <double> power ;
 	if(model_Arm.size()!=0){
 	 for( auto & num : model_Arm ){
-	     
-		 power.push_back(num.get_max_power());
+	     power.push_back(num.get_max_power_Arm());
 	 } //end for
 	} //end if
 	   return power;
+}
+vector<string> Robot_model::Get_each_Arm_name(){
+	vector<string> temp;
+	if(model_Arm.size()!=0){
+	for(auto &num : model_Arm){
+	      temp.push_back(num.get_part_name());
+	}}
+	return (temp);
+}
+vector<string> Robot_model::Get_each_Arm_number(){
+	vector<string> temp;
+	if(model_Arm.size()!=0){
+	for(auto &num : model_Arm){
+	      temp.push_back(num.get_part_number());
+	}}
+	return (temp);
 }
 /******************* Get Torso Info  *********************/
 int  Robot_model::Get_Torso_Bat_Comp () {
@@ -88,6 +103,18 @@ int    Robot_model::Get_Torso_Max_arms() {
 	else
 		return 0;
 } 	
+string Robot_model::Get_Torso_part_name(){
+	if(model_Torso.size()!=0) 
+	return(model_Torso[0].get_part_name());
+	else
+		return("NONE");
+}
+string Robot_model::Get_Torso_part_number(){
+	if(model_Torso.size()!=0) 
+     return(model_Torso[0].get_part_number());
+	else
+		return("NONE");
+}
 /******************* Get Locomotor Info  *********************/
 double Robot_model::Get_Locomotor_max_speed() {
 	if(model_Locomotor.size()!=0)
@@ -101,12 +128,74 @@ double Robot_model::Get_Locomotor_max_power() {
 	else
 		return 0;
 }
+string Robot_model::Get_locomotor_part_name(){
+	if(model_Locomotor.size()!=0)
+	return(model_Locomotor[0].get_part_name());
+	else
+		return("NONE");
+}
+string Robot_model::Get_locomotor_part_number(){
+	if(model_Locomotor.size()!=0)
+     return(model_Locomotor[0].get_part_number());
+	else
+		return("NONE");
+}
 /******************* Get Head Info  *********************/
 int    Robot_model::Get_Head_power() {
 	if(model_Head.size()!=0)
 	return model_Head[0].Getpower();
 	else
 		return 0;
+}
+string Robot_model::Get_Head_part_name(){
+	if(model_Head.size()!=0){
+	return(model_Head[0].get_part_name());}
+	else{
+		string temp =" NONE ";
+		return temp;}
+}
+string Robot_model::Get_Head_part_number(){
+    if(model_Head.size()!=0){ 
+	return(model_Head[0].get_part_number());}
+	else{
+		string temp =" NONE ";
+		return temp;}
+}
+/******************* Get Battery Info  *********************/
+vector<double> Robot_model::Get_Battery_available_power() {
+    vector <double> power ;
+	if(model_Battery.size()!=0){
+	 for( auto & num : model_Battery ){
+	      power.push_back(num.get_power());
+	 } //end for
+	  
+	} //end if
+	return power;
+}
+vector<double> Robot_model::Get_Battery_max_energy() {
+    vector <double> energy ;
+	if(model_Battery.size()!=0){
+	 for( auto & num : model_Battery ){
+	   		 energy.push_back(num.get_max_energy());
+	 } //end for
+	} //end if
+	   return energy;
+}
+vector<string> Robot_model::Get_each_Battery_name(){
+	vector<string> temp;
+	if(model_Battery.size()!=0){
+	for(auto &num : model_Battery){
+	      temp.push_back(num.get_part_name());
+	} }
+	return (temp);
+}
+vector<string> Robot_model::Get_each_Battery_number(){
+	vector<string> temp;
+	if(model_Battery.size()!=0){
+	for(auto &num : model_Battery){
+	      temp.push_back(num.get_part_number());
+	}}
+	return (temp);
 }
 /******************* Get Number of Arms   *********************/
 int Robot_model::Get_number_of_Arms() { 
