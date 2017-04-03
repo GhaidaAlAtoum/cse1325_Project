@@ -255,6 +255,8 @@ void Controller::ADD_ALL_create_button_cb_i() {
 	// Because maybe I am doing them wrong, can't test until connected
 	// To rest of program
 	
+	// Just convert to double and int not working rn
+	
 	
 	if (current_component == "head") {
 		cout << "Head stuff added" << endl;
@@ -262,41 +264,55 @@ void Controller::ADD_ALL_create_button_cb_i() {
 		// add head logic goes here
 		string str_head_power = (string) ADD_ALL_power_input->value();
 		double head_power = std::stod(str_head_power);
+		
+		// CREATE HEAD
+		// ADD TO SHOP
 	}
 	else if (current_component == "arm") {
 		cout << "Arm stuff added" << endl;
 		
-		// Add arm logic goes here
-		string ar ADD_ALL_max_arm_power
+		string str_arm_power = (string) ADD_ALL_max_arm_power_input->value();
+		double arm_power = std::stod(str_arm_power);
+		
+		// CREATE ARM
+		// ADD TO SHOP
 	}
 	else if (current_component == "torso") {
 		cout << "Torso stuff added" << endl;
-		// Add torso logic goes here
+		
+		string str_max_arms = (string) ADD_ALL_max_arms_input->value();
+		int max_arms = std::stoi(str_max_arms);
+		
+		string str_compartments = (string) ADD_ALL_max_battery_compartments_input->value();
+		int compartments = std::stoi(str_compartments);
+		
+		// CREATE TORSO
+		// ADD TO SHOP
 	}
 	else if (current_component == "battery") {
 		cout << "Battery stuff added" << endl;
-		// Add battery logic goes here
+		
+		string str_power_available = (string) ADD_ALL_power_available_input->value();
+		double power_available = std::stod(str_power_available);
+		
+		string str_max_bat_energy = (string) ADD_ALL_max_energy_input->value();
+		double max_bat_energy = std::stod(str_max_bat_energy);
+		
+		// CREATE BATTERY
+		// ADD TO SHOP
 	}
 	else if (current_component == "locomotor") {
 		cout << "Locomotor stuff added" << endl;
-		// Add locomotor logic goes here
+		
+		string str_max_loc_power = (string) ADD_ALL_max_loc_power_input->value();
+		double max_loc_power = std::stod(str_max_loc_power);
+		
+		string str_max_speed = (string) ADD_ALL_max_speed_input->value();
+		double max_speed = std::stod(str_max_speed);
+		
+		// CREATE LOCOMOTOR
+		// ADD TO SHOP
 	}
-	
-	
-	/*
-	Head head = Head(
-		(string) PM_AHM_name_input->value(), string_to_int((string) PM_AHM_model_num_input->value()),
-	(string) PM_AHM_description_input->value(), (string) PM_AHM_image_input->value(),
-	string_to_double((string) PM_AHM_cost_input->value()), 
-    string_to_double((string) PM_AHM_weight_input->value()),
-	string_to_double((string) PM_AHM_power_input->value()));
-	
-	Shop::add_component(head);
-	*/
-	
-	//PM_AHM_window->hide();
-	//PM_ACM->show();
-	
 }
 
 ////////////////////////////////////
@@ -510,132 +526,6 @@ void Controller::PM_ACM_addLoc_cb_i() {
 
 
 
-//////////////////////
-//ADD HEAD/////
-//////////////////
-/*
-
-
-void Controller::PM_AHM_create_button_cb(Fl_Widget* w, void* v) {
-		((Controller*)v)->PM_AHM_create_button_cb_i();
-}
-void Controller::PM_AHM_create_button_cb_i() {
-	cout << "Component Class Made" << endl;		
-	
-	Head head = Head(
-		(string) PM_AHM_name_input->value(), string_to_int((string) PM_AHM_model_num_input->value()),
-	(string) PM_AHM_description_input->value(), (string) PM_AHM_image_input->value(),
-	string_to_double((string) PM_AHM_cost_input->value()), 
-    string_to_double((string) PM_AHM_weight_input->value()),
-	string_to_double((string) PM_AHM_power_input->value()));
-	
-	Shop::add_component(head);
-	
-	
-	PM_AHM_window->hide();
-	PM_ACM->show();
-	
-}
-
-void Controller::PM_AHM_func() {
-	// AHM == ADD HEAD MENU
-	
-	PM_AHM_window = new Fl_Window(500,500,"Add Head");
-	
-	// name cost description image weight power
-	PM_AHM_name_input = new Fl_Input(70,10,200,50,"Name: ");
-	PM_AHM_cost_input = new Fl_Input(70,70,200,50,"Cost: ");
-	PM_AHM_description_input = new Fl_Input(70,130,200,50,"Description: ");
-	PM_AHM_image_input = new Fl_Input(70,190,200,50,"Image: ");
-	PM_AHM_weight_input = new Fl_Input(70,250,200,50,"Weight: ");
-	PM_AHM_power_input = new Fl_Input(70,310,200,50,"Power: ");
-	PM_AHM_model_num_input = new Fl_Input(70,370,200,50,"Model Number: ");
-
-	
-	PM_AHM_create_button = new Fl_Button(70,380,100,50,"Create");
-	PM_AHM_create_button->callback(PM_AHM_create_button_cb, this);
-	PM_AHM_cancel_button = new Fl_Button(190,380,100,50,"Cancel");
-	PM_AHM_cancel_button->callback(PM_AHM_cancel_button_cb, this);
-	
-	PM_AHM_window->show();
-	
-}
-
-void Controller::PM_AHM_cancel_button_cb(Fl_Widget* w, void* v) {
-	((Controller*)v)->PM_AHM_cancel_button_cb_i();		
-}
-
-void Controller::PM_AHM_cancel_button_cb_i() {
-	PM_AHM_window->hide();
-	
-	PM_ACM->show();
-	
-}
-
-////////////////
-// PM Arm Menu//
-///////////////////
-
-
-
-
-
-void Controller::PM_AAM_func() {
-
-   PM_AAM_window = new Fl_Window(500,500, "Arm");
-   //Arm_Box = new Fl_Box(20,10,460,50,"Create Arm");
-
-   	PM_AAM_window->begin();      
-      Fl_Button*  PM_AAM_add_button = new Fl_Button( 10, 450, 70, 30, "&Add"); //child 0   : 1st widget
-      //std::cout <<"you added something" << &Add << endl;
-      PM_AAM_back_button = new Fl_Button(400, 450, 70, 30, "&Back"); //child 1    : 2nd widget
-      PM_AAM_name_input = new Fl_Input(110, 100, 250, 30, "&Name"); //child 2 : 3rd widget
-      PM_AAM_monum_input = new Fl_Input(110, 150, 250, 30, "M&odel Number"); //child 3 : 4th widget
-      PM_AAM_cost_input = new Fl_Input(110, 200, 250, 30, "&Cost"); //child 4 : 5th widget
-      Description = new Fl_Input(110, 250, 250, 30, "&Description"); //child 5 : 3rd widget
-      PM_AAM_image = new Fl_Input(110, 300, 250, 30, "&Image"); //child 6 : 5th widget
-      PM_AAM_max_p = new Fl_Input(110, 350, 250, 30, "&Max Power"); //child 7 : 6th widget
-     // Fl_Output* out = new Fl_Output(50, 100, 140, 30, "Out");     //child 3   : 4th widget
-   PM_AAM_window->end();
-   PM_AAM_add_button->callback(PM_AAM_add_cb, this);
-   PM_AAM_back_button->callback(PM_AAM_back_cb, this);
-   //Back->callback( Back_cb );
-   PM_AAM_window->show();
-
-}
-
-void Controller::PM_AAM_add_cb(Fl_Widget* w, void* v) {
-
- 	((Controller*)v)->PM_AAM_add_cb_i();
-	
-}
-
-void Controller::PM_AAM_add_cb_i() {
-    
-   PM_AAM_window->hide();
-	
-   Arm arm = Arm((string) PM_AHM_name_input->value(), string_to_int((string) PM_AHM_model_num_input->value()),
-	(string) PM_AHM_description_input->value(), (string) PM_AHM_image_input->value(),
-	string_to_double((string) PM_AHM_cost_input->value()), 
-    string_to_double((string) PM_AHM_weight_input->value()),
-	string_to_double((string) PM_AAM_max_p->value()));
-	
-	Shop::add_component(arm);
-	
-	
-	cout << "AAM callback called!" << endl;
-}
-
-void Controller::PM_AAM_back_cb(Fl_Widget* w, void* v) {
-	((Controller*)v)->PM_AAM_add_cb_i();	
-}
-void Controller::PM_AAM_back_cb_i() {
-	PM_AAM_window->hide();
-	
-}
-
-*/
-
 /////////////////////////////
 ////SA MENU//////////////////
 /////////////////////////////
@@ -655,19 +545,9 @@ void Controller::SA_menu_func() {
 
 
 
-
-
-// Create Head
-
-
-
-// Create Arm
-
-// Create Torso
-
-
-
-
+///////////////////
+//MAIN////////////
+/////////////////
 
 int main()
 	
