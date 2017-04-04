@@ -51,13 +51,16 @@ class Controller: public Fl_Window
 	// MAIN MENU
 	Fl_Button* main_button1; // Authenticates PW for Manager, then his menu	
 	Fl_Button* main_button2; // sth else
-	
+	Fl_Button* main_button3; // Custoemr
 	
 	// MAIN Menu CALLBACKS
 	static void main_b1_cb(Fl_Widget*, void*);
 	inline void main_b1_cb_i();
 	static void main_b2_cb(Fl_Widget*, void*);
 	inline void main_b2_cb_i();
+	static void main_b3_cb(Fl_Widget* w, void* v);
+    inline void main_b3_cb_i();
+
 	
 	// UNPW MENU // UNPW = UserName PassWord
 	
@@ -87,7 +90,7 @@ class Controller: public Fl_Window
 	
 	void PM_add_component_menu();
 	
-	// Add amd Bacl buttons
+	// Add and Back buttons
 	static void PM_add_component_button_cb(Fl_Widget*, void*);
 	inline void PM_add_component_button_cb_i();	
 	static void PM_menu_back_button_cb(Fl_Widget*,void*);
@@ -156,21 +159,65 @@ class Controller: public Fl_Window
 	static void ADD_ALL_cancel_button_cb(Fl_Widget*,void*);
 	inline void ADD_ALL_cancel_button_cb_i();
 	
+	// CUSTOMER MENU
+	void CU_menu_func();
 	
+	Fl_Window* cu_menu_win;
+	Fl_Button* cu_order_button;
 	
+	// CU CREATE ORDER MENU
+	void CU_order_menu_func();
+	Fl_Window* CU_order_menu;
+	Fl_Button* CU_create_order_button;
+	Fl_Input* CU_order_model;
+	Fl_Input* CU_del_date;
+	Fl_Input* CU_add_comments;
 
 
+	static void cu_order_button_cb(Fl_Widget*, void*);
+	inline void cu_order_button_cb_i();
 	
 };
-/*
-void Controller::PM_ACM_addhead_cb(Fl_Widget* w, void* v) {
-	((Controller*)v)->PM_ACM_addhead_cb_i();	
+
+void Controller::CU_menu_func() {
+	
+	
+	hide_main_window();
+	cu_menu_win = new Fl_Window(500,500,"Customer");
+	
+	cu_order_button = new Fl_Button(10,10,200,50,"Create Order");
+	cu_order_button->callback(cu_order_button_cb, this);
+	
+	
+	cu_menu_win->show();
+	
 }
-void Controller::PM_ACM_addhead_cb_i() {
-	ADD_ALL_func("head");		
-	PM_ACM->hide();
+
+
+void Controller::cu_order_button_cb(Fl_Widget* w, void* v) {
+	((Controller*)v)->cu_order_button_cb_i();	
 }
-*/
+void Controller::cu_order_button_cb_i() {
+	cout << "it worked" << endl;
+	cu_menu_win->hide();
+	CU_order_menu_func();
+}
+
+// CREATE ORDER FUNCTOIN
+void Controller::CU_order_menu_func() {
+
+	CU_order_menu = new Fl_Window(500,500,"Create Order");
+	CU_create_order_button = new Fl_Button(10,450,70,30,"Create Order");
+	
+	CU_order_model = new Fl_Input(110,25,250,30,"Some option");
+	CU_del_date = new Fl_Input(110,75,250,30,"Some other option");
+	CU_add_comments = new Fl_Input(110,125,250,30,"Some other option");
+
+	
+	
+	CU_order_menu->show();
+	
+}
 
 
 
@@ -330,6 +377,9 @@ Controller::Controller(Test &in_test):Fl_Window(500,500,"Robots'R'us") {
 		main_button2 = new Fl_Button(20,90,200,50,"Sales Associate");
 		main_button2->callback(main_b2_cb, this);
 	
+		main_button3 = new Fl_Button(20,160,200,50,"Customer");
+		main_button3->callback(main_b3_cb, this);
+	
 	
 	
 	end();
@@ -349,6 +399,14 @@ void Controller::main_b2_cb(Fl_Widget* w, void* v) {
 void Controller::main_b2_cb_i() {
 	unpw_menu_func();
 	person_type = "SA";
+}
+
+void Controller::main_b3_cb(Fl_Widget* w, void* v) {
+		((Controller*)v)->main_b3_cb_i();
+}
+void Controller::main_b3_cb_i() {
+	unpw_menu_func();
+	person_type = "CU";
 }
 
 /////////////////////////////////////////
@@ -392,6 +450,8 @@ void Controller::unpw_login_cb_i() {
 			PM_menu_func();
 		else if (person_type == "SA")
 			SA_menu_func();
+		else if (person_type == "CU")
+			CU_menu_func();
 		
 	}
 }
