@@ -15,7 +15,8 @@
 #include <FL/Fl_Double_Window.H>
 #include <FL/Fl_Input_Choice.H>
 #include <FL/Fl_Choice.H>
-
+#include <FL/Fl_Multiline_Output.H>
+#include <FL/Fl_Int_Input.H>
 
 
 using namespace std;
@@ -121,7 +122,26 @@ class Controller: public Fl_Window
 	void SA_menu_func();
 	
 	Fl_Window* SA_mainmenu_window;
-	Fl_Button* SA_CRO_button; // 
+	Fl_Button* SA_CRO_button; 
+	
+	static void SA_process_order_cb(Fl_Widget*,void*);
+	inline void SA_process_order_cb_i();
+	
+	// SA process customer order - Choosing the order
+	
+	void SA_process_order_func();
+	Fl_Window* SA_process_order_win;
+	Fl_Button* process_order_back;
+	Fl_Multiline_Output* order_list;
+	Fl_Int_Input* get_index;
+	Fl_Button* process_order_enter;
+	Fl_Button* SA_process_order;
+	
+	
+	static void process_order_back_cb(Fl_Widget*,void*);
+	inline void process_order_back_cb_i();
+	static void process_order_enter_cb(Fl_Widget*, void*);
+	inline void process_order_enter_cb_i();
 	
 	// ADD COMPONENT ALL WINDOW
 	void ADD_ALL_func(string);
@@ -190,12 +210,14 @@ class Controller: public Fl_Window
 	Fl_Button* BOSS_create_SA;
 	Fl_Button* BOSS_menu_back_b;
 	
+	
 	static void BOSS_create_customer_cb(Fl_Widget*, void*);
 	inline void BOSS_create_customer_cb_i();
 	static void BOSS_create_SA_cb(Fl_Widget*, void*);
 	inline void BOSS_create_SA_cb_i();
 	static void BOSS_menu_back_b_cb(Fl_Widget*, void*);
 	inline void BOSS_menu_back_b_cb_i();
+
 	
 	void BOSS_create_SA_func();
 	void BOSS_create_C_func();
@@ -227,7 +249,6 @@ class Controller: public Fl_Window
 	inline void BOSS_CC_button_cb_i();
 	static void BOSS_CC_cancel_button_cb(Fl_Widget*,void*);
 	inline void BOSS_CC_cancel_button_cb_i();
-	
 	
 	// MENU to ask if returning customer or new
 	void ask_if_new_func();

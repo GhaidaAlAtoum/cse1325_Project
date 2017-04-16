@@ -9,6 +9,8 @@
 #include <FL/Fl_Button.H>
 #include <FL/Fl_Group.H>
 #include <FL/Fl_Input.H>
+#include <FL/Fl_Multiline_Output.H>
+
 
 
 /////////////////////////////////////////
@@ -25,11 +27,14 @@ void Controller::B_menu_func() {
 	BOSS_create_SA = new Fl_Button(20,90,200,50,"Create Sales Associate");
 	BOSS_create_SA->callback(BOSS_create_SA_cb, this);
 	
+	
 	BOSS_menu_back_b = new Fl_Button(10,400,100,50,"Back");
 	BOSS_menu_back_b->callback(BOSS_menu_back_b_cb, this);
 	B_menu_win->show();
 
 }
+
+
 
 void Controller::BOSS_create_customer_cb(Fl_Widget* w, void* v) {
 	((Controller*)v)->BOSS_create_customer_cb_i();	
@@ -125,6 +130,13 @@ void Controller::BOSS_CC_cancel_button_cb_i() {
 	BOSS_create_c_win->hide();
 	B_menu_win->show();
 }
+
+
+
+
+
+
+
 
 
 
