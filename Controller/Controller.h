@@ -235,7 +235,8 @@ class Controller: public Fl_Window
 	inline void BOSS_create_SA_cb_i();
 	static void BOSS_menu_back_b_cb(Fl_Widget*, void*);
 	inline void BOSS_menu_back_b_cb_i();
-	static 
+	static void BOSS_give_raise_cb(Fl_Widget*, void*);
+	inline void BOSS_give_raise_cb_i();
 
 	
 	void BOSS_create_SA_func();
@@ -278,9 +279,22 @@ class Controller: public Fl_Window
 	
 	// BOSS gives raise
 	
-	void give_raise();
+	void give_raise_func();
 	
 	Fl_Window* give_raise_window;
+	Fl_Multiline_Output* SA_list;
+	Fl_Button* give_raise_back;
+	Fl_Button* give_raise_enter;
+	Fl_Button* give_raise_info;
+	Fl_Int_Input* give_raise_index;
+	
+	static void give_raise_back_cb(Fl_Widget*, void*);
+	inline void give_raise_back_callback_i();
+	static void give_raise_enter_cb(Fl_Widget*, void*);
+	inline void give_raise_enter_callback_i();
+	static void give_raise_info_cb(Fl_Widget*, void*);
+	inline void give_raise_info_callback_i();
+	
 	
 	
 	// MENU to ask if returning customer or new

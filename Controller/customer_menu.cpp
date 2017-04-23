@@ -54,7 +54,7 @@ void Controller::CU_menu_catalog_button_cb(Fl_Widget* w, void* v) {
 }
 void Controller::CU_menu_catalog_button_cb_i() {
 	CU_menu_win->hide();
-	view_catalog_func();
+	//view_catalog_func();
 }
 
 
@@ -99,7 +99,7 @@ void Controller::CU_order_cancel_button_cb(Fl_Widget* w, void* v) {
 void Controller::CU_order_cancel_button_cb_i() {
 		CU_order_menu->hide();
 		CU_menu_win->show();
-		view_catalog_func();
+		//view_catalog_func();
 }
 
 void Controller::CU_order_create_button_cb(Fl_Widget* w, void* v) {
