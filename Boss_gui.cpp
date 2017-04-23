@@ -43,7 +43,7 @@ void No_Raise_CB(Fl_Widget *, void *)
 
 
 
-int main() {
+void Controller::raise_stuff_func() {
     Fl_Window *win = new Fl_Window(500,200);
     Fl_Menu_Bar *menu = new Fl_Menu_Bar(0,0,600,25);
     menu->add("Hire_Sales_Associate/Default Password",FL_CTRL+'h' ,Default_Password_CB);

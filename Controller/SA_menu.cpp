@@ -53,12 +53,24 @@ void Controller::SA_process_order_func() {
 	process_order_enter = new Fl_Button(420,450,70,40,"Enter");
 	process_order_enter->callback(process_order_enter_cb, this);
 	
+	process_order_info = new Fl_Button(420,400,70,40,"Info");
+	process_order_info->callback(process_order_info_cb, this);
+	
 	string orders = "Example order 1\nExample order 2\nExample oder 3";
 	const char* out_orders = orders.c_str();
 	order_list->value(out_orders);
 	
+	
+	
 	SA_process_order_win->show();
 	
+}
+
+void Controller::process_order_info_cb(Fl_Widget* w,void* v) {
+	((Controller*)v)->process_order_info_cb_i();
+}
+void Controller::process_order_info_cb_i() {
+	order_info_func(atoi(get_index->value()));
 }
 
 void Controller::process_order_back_cb(Fl_Widget* w,void* v) {
@@ -78,4 +90,25 @@ void Controller::process_order_enter_cb_i() {
 	const char* index = get_index->value();
 	cout << index << endl;
 	cout << "PROCESSING ORDER DOES STH HERE" << endl;	
+}
+
+
+// The window to display 
+void Controller::order_info_func(int in_index) {
+	
+		SA_order_info_win = new Fl_Window(400,200,"Order Info");
+	
+		// Here will be a function to get a string with info about the order
+		// using the index inputted into this function
+		cout << "The index was: " << in_index << endl;
+		string temp_info = "This will have some information about the order \nBut in the meantime it says you are cool";
+		const char* temp_info_2 = temp_info.c_str();
+		order_info_box = new Fl_Multiline_Output(0,0,400,200);
+		order_info_box->value(temp_info_2);
+	
+		
+	
+		SA_order_info_win->show();
+	
+	
 }

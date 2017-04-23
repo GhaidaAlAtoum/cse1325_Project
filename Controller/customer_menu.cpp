@@ -30,9 +30,21 @@ void Controller::CU_menu_func() {
 	CU_menu_back_button = new Fl_Button(10,400,100,50,"Back");
 	CU_menu_back_button->callback(CU_menu_back_button_cb, this);
 	
+	CU_menu_catalog_button = new Fl_Button(10,100,200,50,"View Model Catalog");
+	CU_menu_catalog_button->callback(CU_menu_catalog_button_cb, this);
+	
 	CU_menu_win->show();
 	
 }
+
+void Controller::CU_menu_catalog_button_cb(Fl_Widget* w, void* v) {
+	((Controller*)v)->CU_menu_back_button_cb_i();	
+}
+void Controller::CU_menu_catalog_button_cb_i() {
+	CU_menu_win->hide();
+	view_catalog_func();
+}
+
 
 void Controller::CU_menu_back_button_cb(Fl_Widget* w, void* v) {
 	((Controller*)v)->CU_menu_back_button_cb_i();	
@@ -56,9 +68,9 @@ void Controller::CU_order_button_cb_i() {
 void Controller::CU_order_menu_func() {
 	CU_order_menu = new Fl_Window(500,500,"Create Order");
 	
-	CU_order_model = new Fl_Input(110,25,250,30,"Some option");
-	CU_del_date = new Fl_Input(110,75,250,30,"Some other option");
-	CU_add_comments = new Fl_Input(110,125,250,30,"Some other option");
+	CU_order_model = new Fl_Int_Input(110,25,250,30,"Order Model Index");
+	CU_del_date = new Fl_Input(110,75,250,30,"Delivery Date");
+	CU_add_comments = new Fl_Input(110,125,250,30,"Additional Info");
 
 	CU_create_order_button = new Fl_Button(10,450,70,30,"Create Order");
 	CU_create_order_button->callback(CU_order_create_button_cb, this);
@@ -75,6 +87,7 @@ void Controller::CU_order_cancel_button_cb(Fl_Widget* w, void* v) {
 void Controller::CU_order_cancel_button_cb_i() {
 		CU_order_menu->hide();
 		CU_menu_win->show();
+		view_catalog_func();
 }
 
 void Controller::CU_order_create_button_cb(Fl_Widget* w, void* v) {
@@ -87,3 +100,8 @@ void Controller::CU_order_create_button_cb_i() {
 		CU_order_menu->hide();
 		CU_menu_win->show();
 }
+
+
+
+
+

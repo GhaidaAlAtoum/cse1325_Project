@@ -17,8 +17,12 @@
 #include <FL/Fl_Choice.H>
 #include <FL/Fl_Multiline_Output.H>
 #include <FL/Fl_Int_Input.H>
-
-
+#include <Fl/Fl_Box.H>
+#include <FL/Fl_Shared_Image.H>
+#include <FL/Fl_JPEG_Image.H>
+// test comment to see if comments work
+// Wow this was a big commentment
+//diyssrtrdwsdsdsda
 using namespace std;
 
 bool authenticate_user(string username, string password, string person_type);
@@ -136,12 +140,20 @@ class Controller: public Fl_Window
 	Fl_Int_Input* get_index;
 	Fl_Button* process_order_enter;
 	Fl_Button* SA_process_order;
+	Fl_Button* process_order_info;
 	
 	
+	static void process_order_info_cb(Fl_Widget*, void*);
+	inline void process_order_info_cb_i();
 	static void process_order_back_cb(Fl_Widget*,void*);
 	inline void process_order_back_cb_i();
 	static void process_order_enter_cb(Fl_Widget*, void*);
 	inline void process_order_enter_cb_i();
+	
+	// SA order info window
+	void order_info_func(int);
+	Fl_Window* SA_order_info_win;
+	Fl_Multiline_Output* order_info_box;
 	
 	// ADD COMPONENT ALL WINDOW
 	void ADD_ALL_func(string);
@@ -187,10 +199,14 @@ class Controller: public Fl_Window
 	static void CU_menu_back_button_cb(Fl_Widget*,void*);
 	inline void CU_menu_back_button_cb_i();
 	
+	Fl_Button* CU_menu_catalog_button;
+	static void CU_menu_catalog_button_cb(Fl_Widget*,void*);
+	inline void CU_menu_catalog_button_cb_i();
+	
 	// CU CREATE ORDER MENU
 	void CU_order_menu_func();
 	Fl_Window* CU_order_menu;
-	Fl_Input* CU_order_model;
+	Fl_Int_Input* CU_order_model;
 	Fl_Input* CU_del_date;
 	Fl_Input* CU_add_comments;
 	
@@ -201,7 +217,6 @@ class Controller: public Fl_Window
 	static void CU_order_create_button_cb(Fl_Widget*, void*);
 	inline void CU_order_create_button_cb_i();
 	
-	
 	// BOSS main menu
 	void B_menu_func();
 	Fl_Window* B_menu_win;
@@ -209,18 +224,26 @@ class Controller: public Fl_Window
 	Fl_Button* BOSS_create_customer;
 	Fl_Button* BOSS_create_SA;
 	Fl_Button* BOSS_menu_back_b;
+	Fl_Button* BOSS_raise_stuff_b;
+	Fl_Button* BOSS_give_raise_button;
 	
-	
+	static void BOSS_raise_stuff_b_cb(Fl_Widget*, void*);
+	inline void BOSS_raise_stuff_b_cb_i();
 	static void BOSS_create_customer_cb(Fl_Widget*, void*);
 	inline void BOSS_create_customer_cb_i();
 	static void BOSS_create_SA_cb(Fl_Widget*, void*);
 	inline void BOSS_create_SA_cb_i();
 	static void BOSS_menu_back_b_cb(Fl_Widget*, void*);
 	inline void BOSS_menu_back_b_cb_i();
+	static 
 
 	
 	void BOSS_create_SA_func();
 	void BOSS_create_C_func();
+	
+	// CU VIEW CATALOG WINDOW STUFF
+	
+	void view_catalog_func();
 	
 	// BOSS making SA stuff
 	
@@ -249,6 +272,16 @@ class Controller: public Fl_Window
 	inline void BOSS_CC_button_cb_i();
 	static void BOSS_CC_cancel_button_cb(Fl_Widget*,void*);
 	inline void BOSS_CC_cancel_button_cb_i();
+	
+	// BOSS RAISES AND SHOP STATISTICS
+	void raise_stuff_func();
+	
+	// BOSS gives raise
+	
+	void give_raise();
+	
+	Fl_Window* give_raise_window;
+	
 	
 	// MENU to ask if returning customer or new
 	void ask_if_new_func();
