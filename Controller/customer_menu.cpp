@@ -33,6 +33,18 @@ void Controller::CU_menu_func() {
 	CU_menu_catalog_button = new Fl_Button(10,100,200,50,"View Model Catalog");
 	CU_menu_catalog_button->callback(CU_menu_catalog_button_cb, this);
 	
+
+      /*************JUNU ***********
+      CU_menu_order_button = new Fl_Button(30,100,200,50,"View Order");
+      CU_menu_order_button->callback(CU_menu_order_button_cb, this);
+
+      CU_menu_cancel_button = new Fl_Button(10,400,100,50,"Cancel");
+      CU_menu_cancel_button->callback(CU_menu_cancel_button_cb, this);
+
+      
+       
+     
+      /**********************************/
 	CU_menu_win->show();
 	
 }
