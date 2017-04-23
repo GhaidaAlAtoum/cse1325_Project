@@ -31,7 +31,7 @@ void Controller::B_menu_func() {
 	BOSS_raise_stuff_b->callback(BOSS_raise_stuff_b_cb, this);
 	
 	BOSS_give_raise_button = new Fl_Button(20, 230, 200, 50, "Give Raise");
-	BOSS_give_raise_Button->callback(BOSS_give_raise_cb, this);
+	BOSS_give_raise_button->callback(BOSS_give_raise_cb, this);
 	
 	
 	BOSS_menu_back_b = new Fl_Button(10,400,100,50,"Back");
@@ -40,7 +40,13 @@ void Controller::B_menu_func() {
 
 }
 
-
+void Controller::BOSS_give_raise_cb(Fl_Widget* w, void* v) {
+	((Controller*)v)->BOSS_give_raise_cb_i();	
+}
+void Controller::BOSS_give_raise_cb_i() {
+	B_menu_win->hide();
+	give_raise_func();
+}
 
 void Controller::BOSS_create_customer_cb(Fl_Widget* w, void* v) {
 	((Controller*)v)->BOSS_create_customer_cb_i();	
@@ -210,15 +216,69 @@ void Controller::raise_stuff_func() {
     
 }
     
-void Controller::give_raise() {
+// Window for giving raises
 
-	give_raise_window = new Fl_Window(500,500,"Give Raise"
+void Controller::give_raise_func() {
+
+	give_raise_window = new Fl_Window(500,500,"Give Raise");
+								
+    give_raise_back = new Fl_Button(60,450,100,40,"Back");
+	give_raise_back->callback(give_raise_back_cb, this);
+	
+	give_raise_enter = new Fl_Button(420,450,70,40,"Enter");
+	give_raise_enter->callback(give_raise_enter_cb, this);
+	
+	give_raise_info = new Fl_Button(420,400,70,40,"Info");
+	give_raise_info->callback(give_raise_info_cb, this);
+	
+	give_raise_index = new Fl_Int_Input(330,450, 70,40,"Index");
+	
+	// Text box at top
+	
+	SA_list = new Fl_Multiline_Output(0,0,500,400);
+	string SAs = "SA 1\nSA 2\nSA 3";
+	const char* out_SAs = SAs.c_str();
+	SA_list->value(out_SAs);
+	
+	
+	give_raise_window->show();					  
 	
 }
 
+void Controller::give_raise_back_cb(Fl_Widget* w, void* v) {
+	((Controller*)v)->give_raise_back_callback_i();	
+}
+void Controller::give_raise_back_callback_i() {
+	give_raise_window->hide();
+	B_menu_win->show();
+}
+
+void Controller::give_raise_enter_cb(Fl_Widget* w, void* v) {
+	((Controller*)v)->give_raise_enter_callback_i();	
+}
+void Controller::give_raise_enter_callback_i() {
+	give_raise_window->hide();
+	B_menu_win->show();
+	cout << "DO STUFF FOR APPROVING OR REJECTING RAISE HERE" << endl;
+}
+
+void Controller::give_raise_info_cb(Fl_Widget* w, void* v) {
+	((Controller*)v)->give_raise_info_callback_i();	
+}
+void Controller::give_raise_info_callback_i() {
+	give_raise_window->hide();
+	B_menu_win->show();
+	cout << "Tis isn't right" << endl;
+}
 
 
+/*
+	static void give_raise_enter_cb(Fl_Widget*, void*);
+	inline void give_raise_enter_callback_i();
+	static void give_raise_info_cb(Fl_Widget*, void*);
+	inline void give_raise_info_callback_i();
 
+*/
 
 
 
