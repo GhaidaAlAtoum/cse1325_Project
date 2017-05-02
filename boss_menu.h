@@ -19,19 +19,31 @@
 #include <FL/Fl_Int_Input.H>
 #include <Fl/Fl_Box.H>
 #include <FL/Fl_Scroll.H>
+#include <FL/Fl_Shared_Image.H>
+#include <FL/Fl_JPEG_Image.H>
+#include <FL/Fl_Choice.H>
 //#include "Sales Associate.h"
+#include <FL/Fl_Text_Display.H>
 
 using namespace std;
 
 
 class boss_menu {
                 public:
+	
+	// Info window for giving raise
+	Fl_Window* give_raise_info_win;
+	Fl_Multiline_Output* order_info_box;
+	
+	// Background stuff
+	Fl_JPEG_Image* jpg;
+	Fl_Box* main_background;
   
        	// Boss main menu
 	void B_menu_func();
 	Fl_Window* B_menu_win;
 	
-	//Fl_Button* BOSS_create_customer;
+	Fl_Button* BOSS_create_customer;
 	Fl_Button* BOSS_create_SA;
 	Fl_Button* BOSS_menu_back_b;
 	Fl_Button* BOSS_raise_stuff_b;
@@ -39,8 +51,8 @@ class boss_menu {
 	
 	static void BOSS_raise_stuff_b_cb(Fl_Widget*, void*);
 	inline void BOSS_raise_stuff_b_cb_i();
-	//static void BOSS_create_customer_cb(Fl_Widget*, void*);
-	//inline void BOSS_create_customer_cb_i();
+	static void BOSS_create_customer_cb(Fl_Widget*, void*);
+	inline void BOSS_create_customer_cb_i();
 	static void BOSS_create_SA_cb(Fl_Widget*, void*);
 	inline void BOSS_create_SA_cb_i();
 	static void BOSS_menu_back_b_cb(Fl_Widget*, void*);
@@ -51,6 +63,17 @@ class boss_menu {
 	
 	void BOSS_create_SA_func();
 	void BOSS_create_C_func();
+	
+	// stats and stuff
+
+
+	static void stats_callback(Fl_Widget* w, void* v);
+	inline void stats_callback_i();
+	Fl_Window* stats_win;
+	Fl_Button* back_from_stats;
+	Fl_Text_Display* d1;
+	
+	
 	
 	
 	
@@ -67,7 +90,7 @@ class boss_menu {
 	static void create_SA_back_b_cb(Fl_Widget*, void*);
 	inline void create_SA_back_b_cb_i();
 	
-	/* BOSS making Customer stuff
+	// BOSS making Customer stuff
 	
 	Fl_Window* BOSS_create_c_win;
 	Fl_Input* BOSS_CC_name_input;
@@ -81,12 +104,8 @@ class boss_menu {
 	inline void BOSS_CC_button_cb_i();
 	static void BOSS_CC_cancel_button_cb(Fl_Widget*,void*);
 	inline void BOSS_CC_cancel_button_cb_i();
-
-	*/
-
-	  
-	// BOSS RAISES AND SHOP STATISTICS
-	void raise_stuff_func();
+	
+	
 	
 	// BOSS gives raise
 	
