@@ -42,7 +42,11 @@ void boss_menu::B_menu_func() {
 }
 
 void boss_menu::BOSS_give_raise_cb(Fl_Widget* w, void* v) {
+<<<<<<< HEAD
 ((boss_menu*)v)->BOSS_give_raise_cb_i();
+=======
+//((boss_menu*)v)->BOSS_give_raise_cb_i();
+>>>>>>> 61d2f28ef79b1d4405d14a1e770ac55a66a8424d
 cout<< "Give raise callback" << endl;
 }
 void boss_menu::BOSS_give_raise_cb_i() {
@@ -50,18 +54,31 @@ void boss_menu::BOSS_give_raise_cb_i() {
 	give_raise_func();
 }
 
+<<<<<<< HEAD
 /*void boss_menu::BOSS_create_customer_cb(Fl_Widget* w, void* v) {
 ((boss_menu*)v)->BOSS_create_customer_cb_i();
 cout << "callback for boss create customer" << endl;
 }
 
+=======
+void boss_menu::BOSS_create_customer_cb(Fl_Widget* w, void* v) {
+//((Controller*)v)->BOSS_create_customer_cb_i();
+cout << "callback for boss create customer" << endl;
+}
+>>>>>>> 61d2f28ef79b1d4405d14a1e770ac55a66a8424d
 void boss_menu::BOSS_create_customer_cb_i() {
 	B_menu_win->hide();
 	BOSS_create_C_func();
 }
+<<<<<<< HEAD
 */
 void boss_menu::BOSS_create_SA_cb(Fl_Widget* w, void* v) {
 ((boss_menu*)v)->BOSS_create_SA_cb_i();
+=======
+
+void boss_menu::BOSS_create_SA_cb(Fl_Widget* w, void* v) {
+//((Controller*)v)->BOSS_create_SA_cb_i();
+>>>>>>> 61d2f28ef79b1d4405d14a1e770ac55a66a8424d
 cout << "callback for creating SA" << endl;
 }
 void boss_menu::BOSS_create_SA_cb_i() {
@@ -70,7 +87,11 @@ void boss_menu::BOSS_create_SA_cb_i() {
 }
 
 void boss_menu::BOSS_menu_back_b_cb(Fl_Widget* w, void* v) {
+<<<<<<< HEAD
 ((boss_menu*)v)->BOSS_menu_back_b_cb_i();
+=======
+//((Controller*)v)->BOSS_menu_back_b_cb_i();
+>>>>>>> 61d2f28ef79b1d4405d14a1e770ac55a66a8424d
 cout << "callback for back" << endl;
 }
 void boss_menu::BOSS_menu_back_b_cb_i() {
@@ -79,8 +100,13 @@ void boss_menu::BOSS_menu_back_b_cb_i() {
 }
 
 void boss_menu::BOSS_raise_stuff_b_cb(Fl_Widget* w, void* v) {
+<<<<<<< HEAD
 ((boss_menu*)v)->BOSS_menu_back_b_cb_i();
 cout << " ok i am getting it callback for raise" << endl;
+=======
+//((Controller*)v)->BOSS_menu_back_b_cb_i();
+cout << "callback for raise" << endl;
+>>>>>>> 61d2f28ef79b1d4405d14a1e770ac55a66a8424d
 }
 void boss_menu::BOSS_raise_stuff_b_cb_i() {
 	B_menu_win->hide();
@@ -90,7 +116,11 @@ void boss_menu::BOSS_raise_stuff_b_cb_i() {
 // CREATE SA WINDOW
 
 void boss_menu::create_SA_b_cb(Fl_Widget* w, void* v) {
+<<<<<<< HEAD
 ((boss_menu*)v)->create_SA_b_cb_i();
+=======
+//((Controller*)v)->create_SA_b_cb_i();
+>>>>>>> 61d2f28ef79b1d4405d14a1e770ac55a66a8424d
 cout << "callback fo createSA" << endl;
 }
 void boss_menu::create_SA_b_cb_i() {
@@ -100,7 +130,11 @@ void boss_menu::create_SA_b_cb_i() {
 }
 
 void boss_menu::create_SA_back_b_cb(Fl_Widget* w, void* v) {
+<<<<<<< HEAD
 ((boss_menu*)v)->create_SA_back_b_cb_i();
+=======
+//((Controller*)v)->create_SA_back_b_cb_i();
+>>>>>>> 61d2f28ef79b1d4405d14a1e770ac55a66a8424d
 cout << "callback for going back" << endl;
 }
 void boss_menu::create_SA_back_b_cb_i() { 
@@ -143,11 +177,16 @@ void boss_menu::BOSS_create_C_func() {
 	
 }
 
+<<<<<<< HEAD
 
 
 
 void boss_menu::BOSS_CC_button_cb(Fl_Widget* w,void* v) {
   ((boss_menu*)v)->BOSS_CC_button_cb_i();
+=======
+void boss_menu::BOSS_CC_button_cb(Fl_Widget* w,void* v) {
+  //((Controller*)v)->BOSS_CC_button_cb_i();
+>>>>>>> 61d2f28ef79b1d4405d14a1e770ac55a66a8424d
     cout << "callback button boss" << endl; 
 }
 void boss_menu::BOSS_CC_button_cb_i() {
@@ -157,7 +196,11 @@ void boss_menu::BOSS_CC_button_cb_i() {
 }
 
 void boss_menu::BOSS_CC_cancel_button_cb(Fl_Widget* w,void* v) {
+<<<<<<< HEAD
  ((boss_menu*)v)->BOSS_CC_cancel_button_cb_i();
+=======
+  //((Controller*)v)->BOSS_CC_cancel_button_cb_i();
+>>>>>>> 61d2f28ef79b1d4405d14a1e770ac55a66a8424d
   cout << "callback for calcel" << endl;
 }
 void boss_menu::BOSS_CC_cancel_button_cb_i() {
@@ -269,7 +312,11 @@ void boss_menu::give_raise_back_callback_i() {
 }
 
 void boss_menu::give_raise_enter_cb(Fl_Widget* w, void* v) {
+<<<<<<< HEAD
   ((boss_menu*)v)->give_raise_enter_callback_i();
+=======
+  //((Controller*)v)->give_raise_enter_callback_i();
+>>>>>>> 61d2f28ef79b1d4405d14a1e770ac55a66a8424d
    cout << "callback for raise2" << endl;
 }
 void boss_menu::give_raise_enter_callback_i() {
@@ -279,6 +326,7 @@ void boss_menu::give_raise_enter_callback_i() {
 }
 
 void boss_menu::give_raise_info_cb(Fl_Widget* w, void* v) {
+<<<<<<< HEAD
   ((boss_menu*)v)->give_raise_info_callback_i();
    cout << "callback for raise info" << endl;
 }
@@ -288,6 +336,30 @@ void boss_menu::give_raise_info_callback_i() {
 int main(){
 	boss_menu Boss;
 	Boss.B_menu_func();
+=======
+  //((Controller*)v)->give_raise_info_callback_i();
+   cout << "callback for raise info" << endl;
+}
+void boss_menu::give_raise_info_callback_i() {
+	give_raise_window->hide();
+	B_menu_win->show();
+	cout << "Tis isn't right" << endl;
+}
+
+
+
+/*
+void boss_menu::show_window() {main_window->show();}
+void boss_menu::hide_window() {main_window->hide();}
+	
+*/
+int main(){
+	boss_menu Boss;
+	Boss.B_menu_func();
+	
+	
+	
+>>>>>>> 61d2f28ef79b1d4405d14a1e770ac55a66a8424d
 		
 return Fl::run();	
 }
