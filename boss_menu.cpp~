@@ -1,4 +1,4 @@
-#include "Controller.h"
+
 #include <iostream>
 #include <stdlib.h>
 #include <string>
@@ -11,16 +11,17 @@
 #include <FL/Fl_Input.H>
 #include <FL/Fl_Multiline_Output.H>
 #include <FL/Fl_Menu_Bar.H>
+#include "boss_menu.h"
 
+using namespace std;
 
-
-/////////////////////////////////////////
+///////////////////////////////////
 //////BOSS MENU STUFF///////////////////
 ///////////////////////////////////////
 
-void Controller::B_menu_func() {
+boss_menu::B_menu_func() {
 	
-	hide_main_window();
+//hide_main_window();
 	B_menu_win = new Fl_Window(500,500,"Bossy Wossy");
 	
 	BOSS_create_customer = new Fl_Button(20,20,200,50,"Create Customer");
@@ -29,6 +30,7 @@ void Controller::B_menu_func() {
 	BOSS_create_SA->callback(BOSS_create_SA_cb, this);
 	BOSS_raise_stuff_b = new Fl_Button(20,160,200,50, "Stats and raises");
 	BOSS_raise_stuff_b->callback(BOSS_raise_stuff_b_cb, this);
+
 	
 	BOSS_give_raise_button = new Fl_Button(20, 230, 200, 50, "Give Raise");
 	BOSS_give_raise_button->callback(BOSS_give_raise_cb, this);
@@ -40,66 +42,73 @@ void Controller::B_menu_func() {
 
 }
 
-void Controller::BOSS_give_raise_cb(Fl_Widget* w, void* v) {
-	((Controller*)v)->BOSS_give_raise_cb_i();	
+void BOSS_give_raise_cb(Fl_Widget* w, void* v) {
+//((Controller*)v)->BOSS_give_raise_cb_i();
+cout<< "Give raise callback" << endl;
 }
-void Controller::BOSS_give_raise_cb_i() {
+void BOSS_give_raise_cb_i() {
 	B_menu_win->hide();
 	give_raise_func();
 }
 
-void Controller::BOSS_create_customer_cb(Fl_Widget* w, void* v) {
-	((Controller*)v)->BOSS_create_customer_cb_i();	
+void BOSS_create_customer_cb(Fl_Widget* w, void* v) {
+//((Controller*)v)->BOSS_create_customer_cb_i();
+cout << "callback for boss create customer" << endl;
 }
-void Controller::BOSS_create_customer_cb_i() {
+void BOSS_create_customer_cb_i() {
 	B_menu_win->hide();
 	BOSS_create_C_func();
 }
 
-void Controller::BOSS_create_SA_cb(Fl_Widget* w, void* v) {
-	((Controller*)v)->BOSS_create_SA_cb_i();	
+void BOSS_create_SA_cb(Fl_Widget* w, void* v) {
+//((Controller*)v)->BOSS_create_SA_cb_i();
+cout << "callback for creating SA" << endl;
 }
-void Controller::BOSS_create_SA_cb_i() {
+void BOSS_create_SA_cb_i() {
 	B_menu_win->hide();
 	BOSS_create_SA_func();
 }
 
-void Controller::BOSS_menu_back_b_cb(Fl_Widget* w, void* v) {
-	((Controller*)v)->BOSS_menu_back_b_cb_i();
+void BOSS_menu_back_b_cb(Fl_Widget* w, void* v) {
+//((Controller*)v)->BOSS_menu_back_b_cb_i();
+cout << "callback for back" << endl;
 }
-void Controller::BOSS_menu_back_b_cb_i() {
+void BOSS_menu_back_b_cb_i() {
 	B_menu_win->hide();
 	raise_stuff_func();
 }
 
-void Controller::BOSS_raise_stuff_b_cb(Fl_Widget* w, void* v) {
-	((Controller*)v)->BOSS_menu_back_b_cb_i();
+void BOSS_raise_stuff_b_cb(Fl_Widget* w, void* v) {
+//((Controller*)v)->BOSS_menu_back_b_cb_i();
+cout << "callback for raise" << endl;
 }
-void Controller::BOSS_raise_stuff_b_cb_i() {
+void BOSS_raise_stuff_b_cb_i() {
 	B_menu_win->hide();
 	raise_stuff_func();
 }
 
 // CREATE SA WINDOW
 
-void Controller::create_SA_b_cb(Fl_Widget* w, void* v) {
-	((Controller*)v)->create_SA_b_cb_i();	
+void create_SA_b_cb(Fl_Widget* w, void* v) {
+//((Controller*)v)->create_SA_b_cb_i();
+cout << "callback fo createSA" << endl;
 }
-void Controller::create_SA_b_cb_i() {
+void create_SA_b_cb_i() {
 	cout << "DO STUFF TO CREATE SA HERE!" << endl;	
 	B_menu_win->show();
 	create_SA_window->hide();
 }
 
-void Controller::create_SA_back_b_cb(Fl_Widget* w, void* v) {
-	((Controller*)v)->create_SA_back_b_cb_i();	
+void create_SA_back_b_cb(Fl_Widget* w, void* v) {
+//((Controller*)v)->create_SA_back_b_cb_i();
+cout << "callback for going back" << endl;
 }
-void Controller::create_SA_back_b_cb_i() { 
+void create_SA_back_b_cb_i() { 
 	create_SA_window->hide();
 	B_menu_win->show();
 }
 
-void Controller::BOSS_create_SA_func() {
+boss_menu::BOSS_create_SA_func() {
 	
 	create_SA_window = new Fl_Window(500,500,"Create Sales Associate");
 	
@@ -116,7 +125,7 @@ void Controller::BOSS_create_SA_func() {
 
 // CREATE CUSTOMER STUFF
 
-void Controller::BOSS_create_C_func() {
+boss_menu::BOSS_create_C_func() {
 
 	BOSS_create_c_win = new Fl_Window(500,500,"Create Customer");
 	
@@ -134,19 +143,21 @@ void Controller::BOSS_create_C_func() {
 	
 }
 
-void Controller::BOSS_CC_button_cb(Fl_Widget* w,void* v) {
-	((Controller*)v)->BOSS_CC_button_cb_i();	
+void BOSS_CC_button_cb(Fl_Widget* w,void* v) {
+  //((Controller*)v)->BOSS_CC_button_cb_i();
+    cout << "callback button boss" << endl; 
 }
-void Controller::BOSS_CC_button_cb_i() {
+void BOSS_CC_button_cb_i() {
 	cout << "CREATE CUSTOMER STUFF GOES HERE!" << endl;
 	BOSS_create_c_win->hide();
 	B_menu_win->show();
 }
 
-void Controller::BOSS_CC_cancel_button_cb(Fl_Widget* w,void* v) {
-	((Controller*)v)->BOSS_CC_cancel_button_cb_i();	
+void BOSS_CC_cancel_button_cb(Fl_Widget* w,void* v) {
+  //((Controller*)v)->BOSS_CC_cancel_button_cb_i();
+  cout << "callback for calcel" << endl;
 }
-void Controller::BOSS_CC_cancel_button_cb_i() {
+void BOSS_CC_cancel_button_cb_i() {
 	BOSS_create_c_win->hide();
 	B_menu_win->show();
 }
@@ -195,7 +206,7 @@ void No_Raise_CB(Fl_Widget *, void *)
 
 
 
-void Controller::raise_stuff_func() {
+void raise_stuff_func() {
     Fl_Window *win = new Fl_Window(500,200);
     Fl_Menu_Bar *menu = new Fl_Menu_Bar(0,0,600,25);
     menu->add("Hire_Sales_Associate/Default Password",FL_CTRL+'h' ,Default_Password_CB);
@@ -218,7 +229,7 @@ void Controller::raise_stuff_func() {
     
 // Window for giving raises
 
-void Controller::give_raise_func() {
+void give_raise_func() {
 
 	give_raise_window = new Fl_Window(500,500,"Give Raise");
 								
@@ -245,27 +256,30 @@ void Controller::give_raise_func() {
 	
 }
 
-void Controller::give_raise_back_cb(Fl_Widget* w, void* v) {
-	((Controller*)v)->give_raise_back_callback_i();	
+void give_raise_back_cb(Fl_Widget* w, void* v) {
+  //((Controller*)v)->give_raise_back_callback_i();
+   cout << "callback for raise" << endl;
 }
-void Controller::give_raise_back_callback_i() {
+void give_raise_back_callback_i() {
 	give_raise_window->hide();
 	B_menu_win->show();
 }
 
-void Controller::give_raise_enter_cb(Fl_Widget* w, void* v) {
-	((Controller*)v)->give_raise_enter_callback_i();	
+void give_raise_enter_cb(Fl_Widget* w, void* v) {
+  //((Controller*)v)->give_raise_enter_callback_i();
+   cout << "callback for raise2" << endl;
 }
-void Controller::give_raise_enter_callback_i() {
+void give_raise_enter_callback_i() {
 	give_raise_window->hide();
 	B_menu_win->show();
 	cout << "DO STUFF FOR APPROVING OR REJECTING RAISE HERE" << endl;
 }
 
-void Controller::give_raise_info_cb(Fl_Widget* w, void* v) {
-	((Controller*)v)->give_raise_info_callback_i();	
+void give_raise_info_cb(Fl_Widget* w, void* v) {
+  //((Controller*)v)->give_raise_info_callback_i();
+   cout << "callback for raise info" << endl;
 }
-void Controller::give_raise_info_callback_i() {
+void give_raise_info_callback_i() {
 	give_raise_window->hide();
 	B_menu_win->show();
 	cout << "Tis isn't right" << endl;
@@ -273,6 +287,10 @@ void Controller::give_raise_info_callback_i() {
 
 
 
+
+void boss_menu::show_window() {main_window->show();}
+void boss_menu::hide_window() {main_window->hide();}
+	
 
 
 

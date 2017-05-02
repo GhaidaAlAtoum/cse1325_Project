@@ -19,7 +19,7 @@
 #include <FL/Fl_Int_Input.H>
 #include <Fl/Fl_Box.H>
 #include <FL/Fl_Scroll.H>
-#include "Sales Associate.h"
+//#include "Sales Associate.h"
 
 using namespace std;
 
@@ -31,7 +31,7 @@ class boss_menu {
 	void B_menu_func();
 	Fl_Window* B_menu_win;
 	
-	Fl_Button* BOSS_create_customer;
+	//Fl_Button* BOSS_create_customer;
 	Fl_Button* BOSS_create_SA;
 	Fl_Button* BOSS_menu_back_b;
 	Fl_Button* BOSS_raise_stuff_b;
@@ -39,8 +39,8 @@ class boss_menu {
 	
 	static void BOSS_raise_stuff_b_cb(Fl_Widget*, void*);
 	inline void BOSS_raise_stuff_b_cb_i();
-	static void BOSS_create_customer_cb(Fl_Widget*, void*);
-	inline void BOSS_create_customer_cb_i();
+	//static void BOSS_create_customer_cb(Fl_Widget*, void*);
+	//inline void BOSS_create_customer_cb_i();
 	static void BOSS_create_SA_cb(Fl_Widget*, void*);
 	inline void BOSS_create_SA_cb_i();
 	static void BOSS_menu_back_b_cb(Fl_Widget*, void*);
@@ -67,7 +67,7 @@ class boss_menu {
 	static void create_SA_back_b_cb(Fl_Widget*, void*);
 	inline void create_SA_back_b_cb_i();
 	
-	// BOSS making Customer stuff
+	/* BOSS making Customer stuff
 	
 	Fl_Window* BOSS_create_c_win;
 	Fl_Input* BOSS_CC_name_input;
@@ -81,7 +81,10 @@ class boss_menu {
 	inline void BOSS_CC_button_cb_i();
 	static void BOSS_CC_cancel_button_cb(Fl_Widget*,void*);
 	inline void BOSS_CC_cancel_button_cb_i();
-	
+
+	*/
+
+	  
 	// BOSS RAISES AND SHOP STATISTICS
 	void raise_stuff_func();
 	
