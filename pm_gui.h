@@ -11,6 +11,17 @@
 #include <FL/Fl_Button.H>
 #include <FL/Fl_Group.H>
 #include <FL/Fl_Input.H>
+#include <FL/Fl_Choice.H>
+#include <FL/Fl_Double_Window.H>
+#include <FL/Fl_Int_Input.H>
+#include <FL/Fl_Text_Display.H>
+#include <FL/Fl_Text_Buffer.H>
+#include <FL/Fl_Output.H>
+#include <FL/fl_ask.H>
+#include <FL/Fl_Shared_Image.H>
+#include <FL/Fl_JPEG_Image.H>
+#include <FL/Fl_Choice.H>
+#include <FL/Fl_Box.H>
 
 using namespace std;
 
@@ -18,6 +29,14 @@ class pm_gui: public Fl_Window
 {
 
 	public:
+	
+	
+	// Some boxes so text is visible
+	Fl_Box* all_inputs_box;
+	
+	// Pic stuff
+	Fl_JPEG_Image* jpg;
+	Fl_Box* main_background;
 	
 	// Main Window
 	pm_gui();
@@ -83,6 +102,37 @@ class pm_gui: public Fl_Window
 	inline void ADD_ALL_create_button_cb_i();
 	static void ADD_ALL_cancel_button_cb(Fl_Widget*,void*);
 	inline void ADD_ALL_cancel_button_cb_i();
+	
+	// MAKE MODEL
+	//void add_model_func();
+	Fl_Double_Window* AM_win;
+	Fl_Input* AM_name;
+	Fl_Input* AM_number;
+	Fl_Choice* AM_menu;
+	Fl_Button* AM_back;
+	Fl_Int_Input* AM_index;
+	Fl_Button* AM_ADD;
+	Fl_Button* AM_show;
+	Fl_Text_Display* AM_disp;
+	Fl_Text_Buffer* AM_buff;
+	
+	static void AM_back_cb(Fl_Widget*,void*);
+	inline void AM_back_cb_i();
+	static void AM_ARM_CB(Fl_Widget*,void*);
+	inline void AM_ARM_CB_i(Fl_Widget*,void*);
+	static void AM_TORSO_CB(Fl_Widget*,void*);
+	inline void AM_TORSO_CB_i(Fl_Widget * w, void * v);
+	static void AM_LOCO_CB(Fl_Widget*,void*);
+	inline void AM_LOCO_CB_i(Fl_Widget * w, void * v);
+	static void AM_HEAD_CB(Fl_Widget*,void*);
+	inline void AM_HEAD_CB_i(Fl_Widget * w, void * v);
+	static void AM_BATTERY_CB(Fl_Widget*,void*);
+	inline void AM_BATTERY_CB_i(Fl_Widget * w, void * v);
+	
+	int arm_counter=0;
+	int torso_counter=0;
+	int loco_counter=0;
+	int head_counter=0;
 	
 	private:	
 	
